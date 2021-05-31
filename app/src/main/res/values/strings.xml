@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">کرونا آنلاین</string>
+    <string name="home">صفحه اصلی</string>
+    <string name="country">سایر کشورها</string>
+    <string name="error_connection">خطا در اتصال به اینترنت</string>
+
+</resources>

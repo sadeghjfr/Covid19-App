@@ -1,0 +1,445 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context=".view.fragment.HomeFragment">
+
+  <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+      android:id="@+id/swipeRefreshLayout"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      style="@style/SpinKitView.FadingCircle">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+      <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:gravity="center"
+          android:orientation="vertical">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/parent"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+          <androidx.cardview.widget.CardView
+              android:layout_width="0dp"
+              android:layout_height="0dp"
+              app:cardBackgroundColor="@color/colorPrimaryDark"
+              app:cardCornerRadius="15dp"
+              app:layout_constraintBottom_toTopOf="@+id/guideline13"
+              app:layout_constraintEnd_toStartOf="@+id/guideline6"
+              app:layout_constraintStart_toStartOf="@+id/guideline3"
+              app:layout_constraintTop_toTopOf="@+id/guideline2">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+              <ImageView
+                  android:layout_width="match_parent"
+                  android:layout_height="0dp"
+                  android:layout_weight="0.5"
+                  android:paddingTop="10dp"
+                  android:src="@drawable/ic_confirmed2" />
+
+              <TextView
+                  android:layout_width="match_parent"
+                  android:layout_height="0dp"
+                  android:layout_weight="0.25"
+                  android:gravity="center"
+                  android:text="مبتلایان امروز"
+                  android:textColor="@color/colorPrimaryVariant"
+                  android:textSize="12sp" />
+
+              <TextView
+                  android:id="@+id/txtNewConfirmed"
+                  android:layout_width="match_parent"
+                  android:layout_height="0dp"
+                  android:layout_weight="0.25"
+                  android:gravity="center_horizontal"
+                  android:text="- - -"
+                  android:textColor="@color/colorPrimaryVariant"
+                  android:textSize="10sp" />
+
+            </LinearLayout>
+
+          </androidx.cardview.widget.CardView>
+
+          <androidx.cardview.widget.CardView
+              android:layout_width="0dp"
+              android:layout_height="0dp"
+              app:cardBackgroundColor="@color/colorPrimaryDark"
+              app:cardCornerRadius="15dp"
+              app:layout_constraintBottom_toTopOf="@+id/guideline13"
+              app:layout_constraintEnd_toStartOf="@+id/guideline4"
+              app:layout_constraintStart_toStartOf="@+id/guideline11"
+              app:layout_constraintTop_toTopOf="@+id/guideline2">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+              <ImageView
+                  android:layout_width="match_parent"
+                  android:layout_height="0dp"
+                  android:layout_weight="0.5"
+                  android:paddingTop="10dp"
+                  android:src="@drawable/ic_confirmed" />
+
+              <TextView
+                  android:layout_width="match_parent"
+                  android:layout_height="0dp"
+                  android:layout_weight="0.25"
+                  android:gravity="center"
+                  android:text="مبتلایان"
+                  android:textColor="@color/colorPrimaryVariant"
+                  android:textSize="12sp" />
+
+              <TextView
+                  android:id="@+id/txtTotalConfirmed"
+                  android:layout_width="match_parent"
+                  android:layout_height="0dp"
+                  android:layout_weight="0.25"
+                  android:gravity="center_horizontal"
+                  android:text="- - -"
+                  android:textColor="@color/colorPrimaryVariant"
+                  android:textSize="10sp" />
+
+            </LinearLayout>
+          </androidx.cardview.widget.CardView>
+
+          <androidx.cardview.widget.CardView
+              android:layout_width="0dp"
+              android:layout_height="0dp"
+              app:cardBackgroundColor="@color/colorPrimaryDark"
+              app:cardCornerRadius="15dp"
+              app:layout_constraintBottom_toTopOf="@+id/guideline15"
+              app:layout_constraintEnd_toStartOf="@+id/guideline6"
+              app:layout_constraintHorizontal_bias="0.0"
+              app:layout_constraintStart_toStartOf="@+id/guideline3"
+              app:layout_constraintTop_toTopOf="@+id/guideline14">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+              <ImageView
+                  android:layout_width="match_parent"
+                  android:layout_height="0dp"
+                  android:layout_weight="0.5"
+                  android:paddingTop="10dp"
+                  android:src="@drawable/ic_recovered2" />
+
+              <TextView
+                  android:layout_width="match_parent"
+                  android:layout_height="0dp"
+                  android:layout_weight="0.25"
+                  android:gravity="center"
+                  android:text="بهبود یافته های امروز"
+                  android:textColor="@color/colorPrimaryVariant"
+                  android:textSize="12sp" />
+
+              <TextView
+                  android:id="@+id/txtNewRecovered"
+                  android:layout_width="match_parent"
+                  android:layout_height="0dp"
+                  android:layout_weight="0.25"
+                  android:gravity="center_horizontal"
+                  android:text="- - -"
+                  android:textColor="@color/colorPrimaryVariant"
+                  android:textSize="10sp" />
+
+            </LinearLayout>
+          </androidx.cardview.widget.CardView>
+
+          <androidx.cardview.widget.CardView
+              android:layout_width="0dp"
+              android:layout_height="0dp"
+              app:cardBackgroundColor="@color/colorPrimaryDark"
+              app:cardCornerRadius="15dp"
+              app:layout_constraintBottom_toTopOf="@+id/guideline15"
+              app:layout_constraintEnd_toStartOf="@+id/guideline4"
+              app:layout_constraintHorizontal_bias="0.0"
+              app:layout_constraintStart_toStartOf="@+id/guideline11"
+              app:layout_constraintTop_toTopOf="@+id/guideline14">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+              <ImageView
+                  android:layout_width="match_parent"
+                  android:layout_height="0dp"
+                  android:layout_weight="0.5"
+                  android:paddingTop="10dp"
+                  android:src="@drawable/ic_recovered" />
+
+              <TextView
+                  android:layout_width="match_parent"
+                  android:layout_height="0dp"
+                  android:layout_weight="0.25"
+                  android:gravity="center"
+                  android:text="بهبود یافته ها"
+                  android:textColor="@color/colorPrimaryVariant"
+                  android:textSize="12sp" />
+
+              <TextView
+                  android:id="@+id/txtTotalRecovered"
+                  android:layout_width="match_parent"
+                  android:layout_height="0dp"
+                  android:layout_weight="0.25"
+                  android:gravity="center_horizontal"
+                  android:text="- - -"
+                  android:textColor="@color/colorPrimaryVariant"
+                  android:textSize="10sp" />
+
+            </LinearLayout>
+          </androidx.cardview.widget.CardView>
+
+          <androidx.cardview.widget.CardView
+              android:layout_width="0dp"
+              android:layout_height="0dp"
+              app:cardBackgroundColor="@color/colorPrimaryDark"
+              app:cardCornerRadius="15dp"
+              app:layout_constraintBottom_toTopOf="@+id/guideline12"
+              app:layout_constraintEnd_toStartOf="@+id/guideline6"
+              app:layout_constraintHorizontal_bias="1.0"
+              app:layout_constraintStart_toStartOf="@+id/guideline3"
+              app:layout_constraintTop_toTopOf="@+id/guideline16">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+              <ImageView
+                  android:layout_width="match_parent"
+                  android:layout_height="0dp"
+                  android:layout_weight="0.5"
+                  android:paddingTop="10dp"
+                  android:src="@drawable/ic_death2" />
+
+              <TextView
+                  android:layout_width="match_parent"
+                  android:layout_height="0dp"
+                  android:layout_weight="0.25"
+                  android:gravity="center"
+                  android:text="فوتی های امروز"
+                  android:textColor="@color/colorPrimaryVariant"
+                  android:textSize="12sp" />
+
+              <TextView
+                  android:id="@+id/txtNewDeaths"
+                  android:layout_width="match_parent"
+                  android:layout_height="0dp"
+                  android:layout_weight="0.25"
+                  android:gravity="center_horizontal"
+                  android:text="- - -"
+                  android:textColor="@color/colorPrimaryVariant"
+                  android:textSize="10sp" />
+
+            </LinearLayout>
+          </androidx.cardview.widget.CardView>
+
+          <androidx.cardview.widget.CardView
+              android:layout_width="0dp"
+              android:layout_height="0dp"
+              app:cardBackgroundColor="@color/colorPrimaryDark"
+              app:cardCornerRadius="15dp"
+              app:layout_constraintBottom_toTopOf="@+id/guideline12"
+              app:layout_constraintEnd_toStartOf="@+id/guideline4"
+              app:layout_constraintStart_toStartOf="@+id/guideline11"
+              app:layout_constraintTop_toTopOf="@+id/guideline16">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+              <ImageView
+                  android:layout_width="match_parent"
+                  android:layout_height="0dp"
+                  android:layout_weight="0.5"
+                  android:paddingTop="10dp"
+                  android:src="@drawable/ic_death" />
+
+              <TextView
+                  android:layout_width="match_parent"
+                  android:layout_height="0dp"
+                  android:layout_weight="0.25"
+                  android:gravity="center"
+                  android:text="فوتی ها"
+                  android:textColor="@color/colorPrimaryVariant"
+                  android:textSize="12sp" />
+
+              <TextView
+                  android:id="@+id/txtTotalDeaths"
+                  android:layout_width="match_parent"
+                  android:layout_height="0dp"
+                  android:layout_weight="0.25"
+                  android:gravity="center_horizontal"
+                  android:text="- - -"
+                  android:textColor="@color/colorPrimaryVariant"
+                  android:textSize="10sp" />
+
+            </LinearLayout>
+          </androidx.cardview.widget.CardView>
+
+          <androidx.constraintlayout.widget.Guideline
+              android:id="@+id/guideline2"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:orientation="horizontal"
+              app:layout_constraintGuide_percent="0.15" />
+
+          <androidx.constraintlayout.widget.Guideline
+              android:id="@+id/guideline19"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:orientation="horizontal"
+              app:layout_constraintGuide_percent="0.1" />
+
+          <androidx.constraintlayout.widget.Guideline
+              android:id="@+id/guideline20"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:orientation="horizontal"
+              app:layout_constraintGuide_percent="0.05" />
+
+          <androidx.constraintlayout.widget.Guideline
+              android:id="@+id/guideline13"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:orientation="horizontal"
+              app:layout_constraintGuide_percent="0.35" />
+
+          <androidx.constraintlayout.widget.Guideline
+              android:id="@+id/guideline14"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:orientation="horizontal"
+              app:layout_constraintGuide_percent="0.4" />
+
+          <androidx.constraintlayout.widget.Guideline
+              android:id="@+id/guideline15"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:orientation="horizontal"
+              app:layout_constraintGuide_percent="0.6" />
+
+          <androidx.constraintlayout.widget.Guideline
+              android:id="@+id/guideline16"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:orientation="horizontal"
+              app:layout_constraintGuide_percent="0.65" />
+
+          <androidx.constraintlayout.widget.Guideline
+              android:id="@+id/guideline12"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:orientation="horizontal"
+              app:layout_constraintGuide_percent="0.85" />
+
+          <androidx.constraintlayout.widget.Guideline
+              android:id="@+id/guideline17"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:orientation="horizontal"
+              app:layout_constraintGuide_percent="0.9" />
+
+          <androidx.constraintlayout.widget.Guideline
+              android:id="@+id/guideline18"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:orientation="horizontal"
+              app:layout_constraintGuide_percent="0.95" />
+
+          <androidx.constraintlayout.widget.Guideline
+              android:id="@+id/guideline3"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:orientation="vertical"
+              app:layout_constraintGuide_percent="0.08" />
+
+          <androidx.constraintlayout.widget.Guideline
+              android:id="@+id/guideline6"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:orientation="vertical"
+              app:layout_constraintGuide_percent="0.46" />
+
+          <androidx.constraintlayout.widget.Guideline
+              android:id="@+id/guideline11"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:orientation="vertical"
+              app:layout_constraintGuide_percent="0.54" />
+
+          <androidx.constraintlayout.widget.Guideline
+              android:id="@+id/guideline4"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:orientation="vertical"
+              app:layout_constraintGuide_percent="0.92" />
+
+          <TextView
+              android:id="@+id/txtLastUpdate"
+              android:layout_width="0dp"
+              android:layout_height="0dp"
+              android:gravity="center"
+              android:text="- - - - -"
+              android:textColor="#7f7f7f"
+              android:textSize="12sp"
+              app:layout_constraintBottom_toTopOf="@+id/guideline18"
+              app:layout_constraintEnd_toStartOf="@+id/guideline4"
+              app:layout_constraintStart_toStartOf="@+id/guideline3"
+              app:layout_constraintTop_toTopOf="@+id/guideline17" />
+
+          <TextView
+              android:layout_width="0dp"
+              android:layout_height="0dp"
+              android:gravity="center"
+              android:text="آمار لحظه ای کرونا ویروس در جهان"
+              android:textColor="@color/colorPrimaryVariant"
+              android:textSize="16sp"
+              app:layout_constraintBottom_toTopOf="@+id/guideline19"
+              app:layout_constraintEnd_toStartOf="@+id/guideline4"
+              app:layout_constraintStart_toStartOf="@+id/guideline3"
+              app:layout_constraintTop_toTopOf="@+id/guideline20" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <com.github.ybq.android.spinkit.SpinKitView
+            android:id="@+id/spin_kit"
+            style="@style/SpinKitView.FadingCircle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:visibility="gone"
+            app:SpinKit_Color="@color/colorPrimaryVariant" />
+
+      </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+
+  </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+
+</LinearLayout>
+
