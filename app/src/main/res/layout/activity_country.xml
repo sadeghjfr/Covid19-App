@@ -402,7 +402,7 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text="آمار لحظه ای کرونا ویروس در ایران"
-            android:textColor="@color/colorPrimaryVariant"
+            android:textColor="@color/colorPrimaryDark"
             android:textSize="16sp"
             app:layout_constraintBottom_toTopOf="@+id/guideline19"
             app:layout_constraintEnd_toStartOf="@+id/guideline4"
@@ -478,7 +478,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="0.2"
                         android:text="کشور"
-                        android:textColor="#7f7f7f"
+                        android:textColor="@color/colorHint"
                         android:textSize="12sp" />
 
                 </LinearLayout>
@@ -512,7 +512,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="0.2"
                         android:text="پایتخت"
-                        android:textColor="#7f7f7f"
+                        android:textColor="@color/colorHint"
                         android:textSize="12sp" />
                 </LinearLayout>
 
@@ -545,7 +545,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="0.2"
                         android:text="قاره"
-                        android:textColor="#7f7f7f"
+                        android:textColor="@color/colorHint"
                         android:textSize="12sp" />
 
                 </LinearLayout>
@@ -578,7 +578,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="0.2"
                         android:text="جمعیت"
-                        android:textColor="#7f7f7f"
+                        android:textColor="@color/colorHint"
                         android:textSize="12sp" />
                 </LinearLayout>
             </LinearLayout>

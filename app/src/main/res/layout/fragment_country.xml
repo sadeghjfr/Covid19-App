@@ -52,8 +52,8 @@
                             android:ems="10"
                             android:hint="جستجو . . ."
                             android:inputType="textPersonName"
-                            android:textColor="@color/black"
-                            android:textColorHint="#7f7f7f"
+                            android:textColor="@color/colorPrimaryVariant"
+                            android:textColorHint="@color/colorHint"
                             android:textCursorDrawable="@color/colorPrimaryVariant"
                             android:textSize="16sp" />
 
@@ -62,7 +62,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:background="@android:color/transparent"
-                            android:src="@android:drawable/ic_menu_search" />
+                            android:src="@android:drawable/ic_menu_search"
+                            android:tint="@color/colorHint" />
                     </LinearLayout>
 
                     <androidx.recyclerview.widget.RecyclerView
