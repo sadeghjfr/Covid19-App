@@ -2,14 +2,19 @@ package com.sadeghjfr22.covid19.view.fragment
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import com.sadeghjfr22.covid19.api.apiClient.getCountryInformation
+import com.sadeghjfr22.covid19.base.App
 import com.sadeghjfr22.covid19.base.App.Companion.getContext
 import com.sadeghjfr22.covid19.databinding.FragmentCountryBinding
 import com.sadeghjfr22.covid19.model.Country
@@ -18,6 +23,7 @@ import com.sadeghjfr22.covid19.model.CountryStatistics
 import com.sadeghjfr22.covid19.utils.Translate
 import com.sadeghjfr22.covid19.view.CountryAdapter
 import java.util.*
+import kotlin.collections.ArrayList
 
 class CountryFragment : Fragment() {
 
@@ -28,6 +34,8 @@ class CountryFragment : Fragment() {
         var allCountryStatistics:MutableList<CountryStatistics> = ArrayList()
         var allCountryInformation:MutableList<CountryInformation> = ArrayList()
         var allCountries:MutableList<Country> = ArrayList()
+        var filteredCountries:MutableList<Country> = ArrayList()
+
         @SuppressLint("StaticFieldLeak")
         lateinit var adapter: CountryAdapter
 
@@ -37,10 +45,16 @@ class CountryFragment : Fragment() {
             Translate.fixSomeCountryNames()
             Translate.translateRegion()
             Translate.translateCapital()
-            adapter = CountryAdapter(allCountries, getContext())
-            binding.recyclerView.adapter = adapter
+            setAdapter(allCountries)
             setComponentVisibility(GONE, GONE, VISIBLE, GONE)
 
+        }
+
+        private fun setAdapter(countries:MutableList<Country>){
+
+            adapter = CountryAdapter(countries, getContext())
+            binding.recyclerView.adapter = adapter
+            adapter.notifyDataSetChanged()
         }
 
         fun getAllCountries(){
@@ -97,6 +111,37 @@ class CountryFragment : Fragment() {
 
         getCountryInformation()
 
+        binding.edtSearch.addTextChangedListener(object : TextWatcher {
+
+            override fun afterTextChanged(s: Editable?) {}
+
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+
+            override fun onTextChanged(str: CharSequence?, start: Int, before: Int, count: Int) {
+
+                if (str.toString().trim().equals("")) {
+
+                    setAdapter(allCountries)
+                    binding.btnClose.visibility = GONE
+                }
+
+                else {
+
+                    searchCountryName(str.toString().trim())
+                    binding.btnClose.visibility = VISIBLE
+                }
+            }
+
+        })
+
+        binding.btnClose.setOnClickListener(View.OnClickListener {
+
+            filteredCountries.clear()
+            binding.edtSearch.setText("")
+            binding.btnClose.visibility = GONE
+            setAdapter(allCountries)
+        })
+
 
         return binding.root
     }
@@ -106,6 +151,22 @@ class CountryFragment : Fragment() {
         setComponentVisibility(GONE, GONE, GONE, VISIBLE)
         binding.recyclerView.setHasFixedSize(true)
         binding.recyclerView.layoutManager = GridLayoutManager(getContext(), 2)
+    }
+
+    private fun searchCountryName(str:String){
+
+        filteredCountries.clear()
+
+        for (item in allCountries){
+
+            if (item.name.contains(str)){
+
+                filteredCountries.add(item)
+            }
+        }
+
+        setAdapter(filteredCountries)
+
     }
 
 }

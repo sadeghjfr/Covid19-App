@@ -27,6 +27,16 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
+            <ImageButton
+                android:id="@+id/btnClose"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:background="@android:color/transparent"
+                android:src="@android:drawable/ic_menu_close_clear_cancel"
+                android:visibility="gone"
+                app:tint="@color/colorHint" />
+
             <EditText
                 android:id="@+id/edtSearch"
                 android:layout_width="0dp"
@@ -35,19 +45,22 @@
                 android:background="@null"
                 android:ems="10"
                 android:hint="جستجو . . ."
-                android:inputType="textPersonName"
+                android:inputType="textVisiblePassword"
                 android:textColor="@color/colorPrimaryVariant"
                 android:textColorHint="@color/colorHint"
                 android:textCursorDrawable="@color/colorPrimaryVariant"
                 android:textSize="16sp" />
 
+
             <ImageButton
                 android:id="@+id/imgSearch"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_margin="5dp"
                 android:background="@android:color/transparent"
                 android:src="@android:drawable/ic_menu_search"
-                android:tint="@color/colorHint" />
+                app:tint="@color/colorHint" />
+
         </LinearLayout>
 
         <androidx.recyclerview.widget.RecyclerView
@@ -55,6 +68,7 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:paddingTop="10dp"
+            android:layoutDirection="rtl"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -67,8 +81,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:src="@drawable/no_internet"
-        android:tint="@color/colorHint"
-        android:visibility="gone" />
+        android:visibility="gone"
+        app:tint="@color/colorHint" />
 
     <TextView
         android:id="@+id/txtNoInternet"
