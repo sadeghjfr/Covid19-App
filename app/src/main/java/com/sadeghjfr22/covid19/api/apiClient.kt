@@ -3,114 +3,153 @@ package com.sadeghjfr22.covid19.api
 import android.util.Log
 import android.view.View.GONE
 import android.view.View.VISIBLE
-import com.android.volley.Request
-import com.android.volley.toolbox.StringRequest
-import com.android.volley.toolbox.Volley
+import android.widget.Toast
 import com.google.gson.GsonBuilder
 import com.sadeghjfr22.covid19.base.App.Companion.getContext
 import com.sadeghjfr22.covid19.model.CountryInformation
-import com.sadeghjfr22.covid19.model.CountryStatistics
-import com.sadeghjfr22.covid19.utils.Constants.BASE_URL
-import com.sadeghjfr22.covid19.utils.Constants.COUNTRY_URL
+import com.sadeghjfr22.covid19.model.Global
+import com.sadeghjfr22.covid19.model.Result
+import com.sadeghjfr22.covid19.utils.Constants
 import com.sadeghjfr22.covid19.utils.Constants.TAG
 import com.sadeghjfr22.covid19.view.fragment.CountryFragment
 import com.sadeghjfr22.covid19.view.fragment.CountryFragment.Companion.allCountryInformation
 import com.sadeghjfr22.covid19.view.fragment.CountryFragment.Companion.allCountryStatistics
 import com.sadeghjfr22.covid19.view.fragment.HomeFragment
 import com.sadeghjfr22.covid19.view.fragment.HomeFragment.Companion.global
-import org.json.JSONArray
+import okhttp3.Interceptor
+import okhttp3.OkHttpClient
+import okhttp3.Request
+import okhttp3.Response
+import okhttp3.logging.HttpLoggingInterceptor
 import org.json.JSONObject
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
+import java.io.IOException
+import java.util.concurrent.TimeUnit
+
 
 object apiClient {
 
-  fun getGlobalInformation(){
+  private var retrofit: Retrofit? = null
+  private var OKHttpClient: OkHttpClient? = null
 
-        val requestQueue = Volley.newRequestQueue(getContext())
+  private fun getApiClient(url: String): Retrofit? {
 
-        val stringRequest = StringRequest(Request.Method.GET, BASE_URL, { response ->
+      OKHttpClient = initOkHttp()
 
-            val jsonObject = JSONObject(response)
-            val globalObject = jsonObject.getJSONObject("Global")
+      val gson = GsonBuilder()
+              .setLenient()
+              .create()
 
-            global.TotalConfirmed = (globalObject.getString("TotalConfirmed"))
-            global.NewConfirmed = (globalObject.getString("NewConfirmed"))
-            global.TotalRecovered = (globalObject.getString("TotalRecovered"))
-            global.NewRecovered = (globalObject.getString("NewRecovered"))
-            global.TotalDeaths = (globalObject.getString("TotalDeaths"))
-            global.NewDeaths = (globalObject.getString("NewDeaths"))
+      retrofit = Retrofit.Builder().baseUrl(url)
+          .client(OKHttpClient)
+          .addConverterFactory(GsonConverterFactory.create(gson))
+          .build()
 
-            HomeFragment.setInformation(true)
+      return retrofit
+  }
 
-
-        }, { error ->
-
-            Log.e(TAG, "getGlobalInformationERROR:" + error.message)
-            HomeFragment.setInformation(false)
+  private fun initOkHttp(): OkHttpClient? {
+        val REQUEST_TIMEOUT = 60
+        val httpClient = OkHttpClient().newBuilder()
+            .connectTimeout(REQUEST_TIMEOUT.toLong(), TimeUnit.SECONDS)
+            .readTimeout(REQUEST_TIMEOUT.toLong(), TimeUnit.SECONDS)
+            .writeTimeout(REQUEST_TIMEOUT.toLong(), TimeUnit.SECONDS)
+        val interceptor = HttpLoggingInterceptor()
+        interceptor.setLevel(HttpLoggingInterceptor.Level.BODY)
+        httpClient.addInterceptor(interceptor)
+        httpClient.addInterceptor(object : Interceptor {
+            @Throws(IOException::class)
+            override fun intercept(chain: Interceptor.Chain): Response? {
+                val original: Request = chain.request()
+                val requestBuilder: Request.Builder = original.newBuilder()
+                    .addHeader("Accept", "application/json")
+                    .addHeader("Content-Type", "application/json")
+                val request: Request = requestBuilder.build()
+                return chain.proceed(request)
+            }
         })
-
-      requestQueue.add(stringRequest)
-
+        return httpClient.build()
     }
 
-  fun getCountryStatistics(){
 
-        val requestQueue = Volley.newRequestQueue(getContext())
+  fun getGlobalInformation(){
 
-        val stringRequest = StringRequest(Request.Method.GET, BASE_URL, { response ->
+        lateinit var request: ApiInterface
 
-            val jsonObject = JSONObject(response)
-            val countries = jsonObject.getJSONArray("Countries")
-            val gson = GsonBuilder().create()
+        request = getApiClient(Constants.BASE_URL)!!.create(ApiInterface::class.java)
 
-            allCountryStatistics.clear()
+        request.getGlobalInformation().enqueue(object : Callback<Result> {
 
-            for (i in 0 until countries.length()) {
+            override fun onResponse(call: Call<Result>, response: retrofit2.Response<Result>) {
 
-             val country = gson.fromJson(countries.getJSONObject(i).toString(), CountryStatistics::class.java)
-             allCountryStatistics.add(country)
-           }
+                if (response.code() == 200){
 
-            getCountryInformation()
+                    global = response.body()!!.Global
+                    allCountryStatistics.clear()
+                    allCountryStatistics.addAll(response.body()!!.Countries)
+                    HomeFragment.setInformation(true)
+                }
+
+                else{
+
+                    Log.i(TAG,"code:"+response.code())
+                    Log.i(TAG,"errorBody:"+response.errorBody())
+                    HomeFragment.setInformation(false)
+                }
 
 
-        }, { error ->
+            }
 
-            Log.e(TAG, "getCountryStatisticsError:" + error.message)
-            CountryFragment.setComponentVisibility(VISIBLE, VISIBLE, GONE, GONE)
+            override fun onFailure(call: Call<Result>, t: Throwable) {
+                Log.i(TAG,"getGlobalInformation:"+t.message)
+                HomeFragment.setInformation(false)
+
+            }
 
         })
 
-        requestQueue.add(stringRequest)
 
     }
 
   fun getCountryInformation(){
 
-        val requestQueue = Volley.newRequestQueue(getContext())
 
-        val stringRequest = StringRequest(Request.Method.GET, COUNTRY_URL, { response ->
+      lateinit var request: ApiInterface
 
-            val jsonArray = JSONArray(response)
-            val gson = GsonBuilder().create()
+      request = getApiClient(Constants.COUNTRY_URL)!!.create(ApiInterface::class.java)
 
-            allCountryInformation.clear()
+      request.getCountryInformation().enqueue(object : Callback<List<CountryInformation>> {
 
-            for (i in 0 until jsonArray.length()) {
+          override fun onResponse(call: Call<List<CountryInformation>>, response: retrofit2.Response<List<CountryInformation>>) {
 
-                val country = gson.fromJson(jsonArray.getJSONObject(i).toString(), CountryInformation::class.java)
-                allCountryInformation.add(country)
 
-            }
+              if (response.code() == 200){
 
-            CountryFragment.setInformation()
+                  allCountryInformation.clear()
+                  allCountryInformation.addAll(response.body()!!)
+                  CountryFragment.setInformation()
+              }
 
-        }, { error ->
+              else{
 
-            Log.e(TAG, "getAllCountryInformationError:" + error.message)
-            CountryFragment.setComponentVisibility(VISIBLE, VISIBLE, GONE, GONE)
-        })
+                  Log.i(TAG,"code:"+response.code())
+                  Log.i(TAG,"errorBody:"+response.errorBody())
+                  CountryFragment.setComponentVisibility(VISIBLE, VISIBLE, GONE, GONE)
+              }
 
-        requestQueue.add(stringRequest)
-    }
+          }
+
+          override fun onFailure(call: Call<List<CountryInformation>>, t: Throwable) {
+
+              Log.i(TAG,"getCountryInformation:"+t.message)
+              CountryFragment.setComponentVisibility(VISIBLE, VISIBLE, GONE, GONE)
+          }
+
+      })
+
+  }
 
 }

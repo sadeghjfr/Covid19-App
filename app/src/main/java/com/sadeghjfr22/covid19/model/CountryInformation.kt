@@ -6,4 +6,5 @@ class CountryInformation(
     var region:String,
     var population:String,
     var flag:String,
-    var alpha2Code:String)
+    var alpha2Code:String,
+    var translations:Translation)

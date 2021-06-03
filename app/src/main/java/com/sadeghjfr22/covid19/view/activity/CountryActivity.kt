@@ -1,15 +1,11 @@
 package com.sadeghjfr22.covid19.view.activity
 
-import android.graphics.Color
 import android.os.Bundle
 import com.sadeghjfr22.covid19.base.BaseActivity
 import com.sadeghjfr22.covid19.databinding.ActivityCountryBinding
 import com.sadeghjfr22.covid19.model.Country
 import com.sadeghjfr22.covid19.utils.ImageUtils.loadImage
-import com.sadeghjfr22.covid19.utils.NumberUtils.turnNumbersToPersian
 import com.sadeghjfr22.covid19.view.fragment.CountryFragment.Companion.allCountries
-import com.sadeghjfr22.covid19.view.fragment.HomeFragment
-import org.eazegraph.lib.models.PieModel
 import java.text.DecimalFormat
 import java.text.SimpleDateFormat
 import java.util.*
@@ -46,8 +42,7 @@ class CountryActivity : BaseActivity() {
     private fun setInformation(){
 
         val decimalFormat = DecimalFormat("###,###")
-        var population = decimalFormat.format(Integer.valueOf(country.population))
-        population = turnNumbersToPersian(population)
+        val population = decimalFormat.format(Integer.valueOf(country.population))
 
         binding.txtName.setText(country.name)
         binding.txtCapital.setText(country.capital)

@@ -403,7 +403,7 @@
             android:gravity="center"
             android:text="آمار لحظه ای کرونا ویروس در ایران"
             android:textColor="@color/colorPrimaryDark"
-            android:textSize="16sp"
+            android:textSize="14sp"
             app:layout_constraintBottom_toTopOf="@+id/guideline19"
             app:layout_constraintEnd_toStartOf="@+id/guideline4"
             app:layout_constraintStart_toStartOf="@+id/guideline3" />
