@@ -1,6 +1,7 @@
 package com.sadeghjfr22.covid19.view.fragment
 
 import android.annotation.SuppressLint
+import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -82,7 +83,14 @@ class HomeFragment : Fragment() {
 
             if (status){
 
-                val sdf = SimpleDateFormat("d  HH:mm MMM")
+                var pattern = "d  HH:mm MMM"
+
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+
+                    pattern = "HH:mm  d MMM"
+                }
+
+                val sdf = SimpleDateFormat(pattern)
                 time = sdf.format(Date())
             }
 

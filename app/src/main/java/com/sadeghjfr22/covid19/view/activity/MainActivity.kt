@@ -22,9 +22,7 @@ class MainActivity : BaseActivity(), BottomNavigationView.OnNavigationItemSelect
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
         initData()
-
     }
 
 

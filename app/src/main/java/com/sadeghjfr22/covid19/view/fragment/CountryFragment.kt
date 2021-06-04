@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.View.GONE
@@ -17,8 +18,10 @@ import com.sadeghjfr22.covid19.databinding.FragmentCountryBinding
 import com.sadeghjfr22.covid19.model.Country
 import com.sadeghjfr22.covid19.model.CountryInformation
 import com.sadeghjfr22.covid19.model.CountryStatistics
-import com.sadeghjfr22.covid19.utils.Translate
+import com.sadeghjfr22.covid19.utils.Constants
+import com.sadeghjfr22.covid19.utils.Utils
 import com.sadeghjfr22.covid19.view.CountryAdapter
+import java.util.*
 import kotlin.collections.ArrayList
 
 class CountryFragment : Fragment() {
@@ -38,9 +41,10 @@ class CountryFragment : Fragment() {
         fun setInformation(){
 
             getAllCountries()
-            Translate.fixSomeCountryNames()
-            Translate.translateRegion()
-            Translate.translateCapital()
+            Utils.fixSomeCountryNames()
+            Utils.translateRegion()
+            Utils.translateCapital()
+            Utils.persianAlphabetically()
             setAdapter(allCountries)
             setComponentVisibility(GONE, GONE, VISIBLE, GONE)
 

@@ -16,7 +16,7 @@ import com.sadeghjfr22.covid19.R
 import com.sadeghjfr22.covid19.base.App
 import com.sadeghjfr22.covid19.base.App.Companion.currentActivity
 import com.sadeghjfr22.covid19.model.Country
-import com.sadeghjfr22.covid19.utils.ImageUtils.loadImage
+import com.sadeghjfr22.covid19.utils.Utils.loadImage
 import com.sadeghjfr22.covid19.view.activity.CountryActivity
 
 class CountryAdapter : RecyclerView.Adapter<CountryAdapter.MyViewHolder> {

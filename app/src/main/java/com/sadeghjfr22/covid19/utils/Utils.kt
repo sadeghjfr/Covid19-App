@@ -1,9 +1,18 @@
 package com.sadeghjfr22.covid19.utils
 
+import android.os.Build
+import android.util.Log
+import android.widget.ImageView
+import coil.request.ImageRequest
+import coil.transform.RoundedCornersTransformation
+import com.sadeghjfr22.covid19.base.App
+import com.sadeghjfr22.covid19.model.Country
+import com.sadeghjfr22.covid19.utils.Constants.TAG
 import com.sadeghjfr22.covid19.view.fragment.CountryFragment.Companion.allCountries
+import java.text.Collator
+import java.util.*
 
-object Translate {
-
+object Utils {
 
     fun fixSomeCountryNames(){
 
@@ -245,6 +254,54 @@ object Translate {
             if (item.name.equals("واتیکان"))
                 item.capital = "واتیکان سیتی"
         }
+    }
+
+    fun ImageView.loadImage(url: String) {
+
+        val request = ImageRequest.Builder(this.context)
+            .crossfade(true)
+            .crossfade(500)
+            .transformations(RoundedCornersTransformation(20f))
+            .data(url)
+            .target(this)
+            .build()
+
+        App.imageLoader.enqueue(request)
+    }
+
+    fun persianAlphabetically(){
+
+        val items: MutableList<String> = ArrayList()
+
+        for (item in allCountries){
+
+            items.add(item.name)
+        }
+
+        val collator: Collator = Collator.getInstance(Locale("fa", "IR"))
+        collator.setStrength(Collator.PRIMARY)
+        Collections.sort(items, collator)
+
+        val tmp: MutableList<Country> = ArrayList()
+        tmp.addAll(allCountries)
+        allCountries.clear()
+
+        for (name in items){
+
+            for (country in tmp){
+
+              if (name.equals(country.name)) {
+                  allCountries.add(country)
+                  tmp.remove(country)
+                  break
+              }
+
+            }
+        }
+
+        items.clear()
+        tmp.clear()
+
     }
 
 }
