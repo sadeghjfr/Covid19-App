@@ -389,7 +389,7 @@
             android:layout_height="0dp"
             android:gravity="center"
             android:text="- - - - -"
-            android:textColor="#7f7f7f"
+            android:textColor="#5f5f5f"
             android:textSize="12sp"
             app:layout_constraintBottom_toTopOf="@+id/guideline18"
             app:layout_constraintEnd_toStartOf="@+id/guideline4"
@@ -434,21 +434,14 @@
             android:orientation="horizontal"
             android:padding="15dp">
 
-            <androidx.cardview.widget.CardView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+            <ImageView
+                android:id="@+id/imgFlag"
+                android:layout_width="100dp"
+                android:layout_height="75dp"
                 android:layout_gravity="top"
                 android:layout_marginEnd="15dp"
                 android:layout_marginRight="15dp"
-                app:cardBackgroundColor="@android:color/transparent"
-                app:cardCornerRadius="15dp">
-
-                <ImageView
-                    android:id="@+id/imgFlag"
-                    android:layout_width="100dp"
-                    android:layout_height="75dp"
-                    android:scaleType="fitXY" />
-            </androidx.cardview.widget.CardView>
+                android:scaleType="fitXY" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -466,7 +459,7 @@
                         android:id="@+id/txtName"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_weight="0.8"
+                        android:layout_weight="0.7"
                         android:gravity="center"
                         android:text="ایران"
                         android:textColor="@color/colorPrimaryVariant"
@@ -476,7 +469,7 @@
                         android:id="@+id/textView4"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_weight="0.2"
+                        android:layout_weight="0.3"
                         android:text="کشور"
                         android:textColor="@color/colorHint"
                         android:textSize="12sp" />
@@ -500,7 +493,7 @@
                         android:id="@+id/txtCapital"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_weight="0.8"
+                        android:layout_weight="0.7"
                         android:gravity="center"
                         android:text="تهران"
                         android:textColor="@color/colorPrimaryVariant"
@@ -510,7 +503,7 @@
                         android:id="@+id/textView3"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_weight="0.2"
+                        android:layout_weight="0.3"
                         android:text="پایتخت"
                         android:textColor="@color/colorHint"
                         android:textSize="12sp" />
@@ -533,7 +526,7 @@
                         android:id="@+id/txtRegion"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_weight="0.8"
+                        android:layout_weight="0.7"
                         android:gravity="center"
                         android:text="اسیا"
                         android:textColor="@color/colorPrimaryVariant"
@@ -543,7 +536,7 @@
                         android:id="@+id/textView2"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_weight="0.2"
+                        android:layout_weight="0.3"
                         android:text="قاره"
                         android:textColor="@color/colorHint"
                         android:textSize="12sp" />
@@ -566,7 +559,7 @@
                         android:id="@+id/txtPopulation"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_weight="0.8"
+                        android:layout_weight="0.7"
                         android:gravity="center"
                         android:text="85000000"
                         android:textColor="@color/colorPrimaryVariant"
@@ -576,7 +569,7 @@
                         android:id="@+id/textView"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_weight="0.2"
+                        android:layout_weight="0.3"
                         android:text="جمعیت"
                         android:textColor="@color/colorHint"
                         android:textSize="12sp" />

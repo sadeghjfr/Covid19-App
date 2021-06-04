@@ -61,7 +61,7 @@ class CountryActivity : BaseActivity() {
         binding.txtTotalRecoveredCountry.setText(decimalFormat.format(Integer.valueOf(country.totalRecovered)))
 
 
-        val sdf = SimpleDateFormat("HH:mm   d MMM")
+        val sdf = SimpleDateFormat("d  HH:mm MMM")
         val time = sdf.format(Date())
 
         binding.txtLastUpdateCountry.setText("آخرین بروز رسانی  "+time)

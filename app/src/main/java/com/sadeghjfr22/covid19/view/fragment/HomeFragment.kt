@@ -82,7 +82,7 @@ class HomeFragment : Fragment() {
 
             if (status){
 
-                val sdf = SimpleDateFormat("HH:mm   d MMM")
+                val sdf = SimpleDateFormat("d  HH:mm MMM")
                 time = sdf.format(Date())
             }
 
