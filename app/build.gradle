@@ -1,8 +1,8 @@
+
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
 }
-
 
 android {
     compileSdkVersion 30
@@ -10,10 +10,11 @@ android {
 
     defaultConfig {
         applicationId "com.sadeghjfr22.covid19"
-        minSdkVersion 16
+        minSdkVersion 19
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
+        multiDexEnabled true
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -24,10 +25,12 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+
     kotlinOptions {
         jvmTarget = '1.8'
     }
@@ -35,6 +38,7 @@ android {
     buildFeatures {
         viewBinding true
     }
+
 }
 
 dependencies {
@@ -69,5 +73,9 @@ dependencies {
         force = true //API 19 support
     }
     implementation 'com.squareup.okhttp3:logging-interceptor:3.12.12'
+    //play-services
+    implementation 'com.google.android.gms:play-services-auth:19.0.0'
+    //dex
+    implementation 'androidx.multidex:multidex:2.0.1'
 
 }

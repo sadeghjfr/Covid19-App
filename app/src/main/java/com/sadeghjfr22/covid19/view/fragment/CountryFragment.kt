@@ -9,12 +9,9 @@ import android.view.View
 import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.view.ViewGroup
-import android.widget.Toast
-import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
-import com.sadeghjfr22.covid19.api.apiClient.getCountryInformation
-import com.sadeghjfr22.covid19.base.App
+import com.sadeghjfr22.covid19.api.ClientApi.getCountryInformation
 import com.sadeghjfr22.covid19.base.App.Companion.getContext
 import com.sadeghjfr22.covid19.databinding.FragmentCountryBinding
 import com.sadeghjfr22.covid19.model.Country
@@ -22,7 +19,6 @@ import com.sadeghjfr22.covid19.model.CountryInformation
 import com.sadeghjfr22.covid19.model.CountryStatistics
 import com.sadeghjfr22.covid19.utils.Translate
 import com.sadeghjfr22.covid19.view.CountryAdapter
-import java.util.*
 import kotlin.collections.ArrayList
 
 class CountryFragment : Fragment() {

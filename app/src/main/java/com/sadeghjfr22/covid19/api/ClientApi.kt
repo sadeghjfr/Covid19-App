@@ -3,11 +3,8 @@ package com.sadeghjfr22.covid19.api
 import android.util.Log
 import android.view.View.GONE
 import android.view.View.VISIBLE
-import android.widget.Toast
 import com.google.gson.GsonBuilder
-import com.sadeghjfr22.covid19.base.App.Companion.getContext
 import com.sadeghjfr22.covid19.model.CountryInformation
-import com.sadeghjfr22.covid19.model.Global
 import com.sadeghjfr22.covid19.model.Result
 import com.sadeghjfr22.covid19.utils.Constants
 import com.sadeghjfr22.covid19.utils.Constants.TAG
@@ -16,70 +13,40 @@ import com.sadeghjfr22.covid19.view.fragment.CountryFragment.Companion.allCountr
 import com.sadeghjfr22.covid19.view.fragment.CountryFragment.Companion.allCountryStatistics
 import com.sadeghjfr22.covid19.view.fragment.HomeFragment
 import com.sadeghjfr22.covid19.view.fragment.HomeFragment.Companion.global
-import okhttp3.Interceptor
+import okhttp3.CipherSuite
+import okhttp3.ConnectionSpec
 import okhttp3.OkHttpClient
-import okhttp3.Request
-import okhttp3.Response
-import okhttp3.logging.HttpLoggingInterceptor
-import org.json.JSONObject
+import okhttp3.TlsVersion
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import java.io.IOException
-import java.util.concurrent.TimeUnit
+import java.util.*
 
 
-object apiClient {
+object ClientApi {
 
   private var retrofit: Retrofit? = null
-  private var OKHttpClient: OkHttpClient? = null
 
   private fun getApiClient(url: String): Retrofit? {
 
-      OKHttpClient = initOkHttp()
+      val gson = GsonBuilder().setLenient().create()
 
-      val gson = GsonBuilder()
-              .setLenient()
-              .create()
-
-      retrofit = Retrofit.Builder().baseUrl(url)
-          .client(OKHttpClient)
+      retrofit = Retrofit
+          .Builder()
+          .baseUrl(url)
           .addConverterFactory(GsonConverterFactory.create(gson))
           .build()
 
       return retrofit
   }
 
-  private fun initOkHttp(): OkHttpClient? {
-        val REQUEST_TIMEOUT = 60
-        val httpClient = OkHttpClient().newBuilder()
-            .connectTimeout(REQUEST_TIMEOUT.toLong(), TimeUnit.SECONDS)
-            .readTimeout(REQUEST_TIMEOUT.toLong(), TimeUnit.SECONDS)
-            .writeTimeout(REQUEST_TIMEOUT.toLong(), TimeUnit.SECONDS)
-        val interceptor = HttpLoggingInterceptor()
-        interceptor.setLevel(HttpLoggingInterceptor.Level.BODY)
-        httpClient.addInterceptor(interceptor)
-        httpClient.addInterceptor(object : Interceptor {
-            @Throws(IOException::class)
-            override fun intercept(chain: Interceptor.Chain): Response? {
-                val original: Request = chain.request()
-                val requestBuilder: Request.Builder = original.newBuilder()
-                    .addHeader("Accept", "application/json")
-                    .addHeader("Content-Type", "application/json")
-                val request: Request = requestBuilder.build()
-                return chain.proceed(request)
-            }
-        })
-        return httpClient.build()
-    }
-
 
   fun getGlobalInformation(){
 
-        lateinit var request: ApiInterface
+        lateinit var request: InterfaceApi
 
-        request = getApiClient(Constants.BASE_URL)!!.create(ApiInterface::class.java)
+        request = getApiClient(Constants.BASE_URL)!!.create(InterfaceApi::class.java)
 
         request.getGlobalInformation().enqueue(object : Callback<Result> {
 
@@ -117,9 +84,9 @@ object apiClient {
   fun getCountryInformation(){
 
 
-      lateinit var request: ApiInterface
+      lateinit var request: InterfaceApi
 
-      request = getApiClient(Constants.COUNTRY_URL)!!.create(ApiInterface::class.java)
+      request = getApiClient(Constants.COUNTRY_URL)!!.create(InterfaceApi::class.java)
 
       request.getCountryInformation().enqueue(object : Callback<List<CountryInformation>> {
 

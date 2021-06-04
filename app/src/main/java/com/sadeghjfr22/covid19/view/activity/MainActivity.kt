@@ -25,7 +25,6 @@ class MainActivity : BaseActivity(), BottomNavigationView.OnNavigationItemSelect
 
         initData()
 
-        launchFragment(HomeFragment())
     }
 
 
