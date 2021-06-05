@@ -36,9 +36,5 @@ open class BaseActivity : AppCompatActivity() {
         super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase))
     }
 
-    /*private open fun forceRTLIfSupported() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
-            window.decorView.layoutDirection = View.LAYOUT_DIRECTION_RTL
-        }
-    }*/
+
 }

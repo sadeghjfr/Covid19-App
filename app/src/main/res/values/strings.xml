@@ -1,7 +1,10 @@
 <resources>
     <string name="app_name">کرونا آنلاین</string>
     <string name="home">صفحه اصلی</string>
-    <string name="country">سایر کشورها</string>
+    <string name="country">کشورها</string>
     <string name="error_connection">خطا در اتصال به اینترنت</string>
+    <string name="about_us">درباره ما</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>
