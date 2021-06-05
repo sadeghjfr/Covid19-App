@@ -4,24 +4,18 @@ import android.util.Log
 import android.view.View.GONE
 import android.view.View.VISIBLE
 import com.google.gson.GsonBuilder
-import com.sadeghjfr22.covid19.model.CountryInformation
-import com.sadeghjfr22.covid19.model.Result
+import com.sadeghjfr22.covid19.model.Country
+import com.sadeghjfr22.covid19.model.Global
 import com.sadeghjfr22.covid19.utils.Constants
 import com.sadeghjfr22.covid19.utils.Constants.TAG
 import com.sadeghjfr22.covid19.view.fragment.CountryFragment
-import com.sadeghjfr22.covid19.view.fragment.CountryFragment.Companion.allCountryInformation
-import com.sadeghjfr22.covid19.view.fragment.CountryFragment.Companion.allCountryStatistics
+import com.sadeghjfr22.covid19.view.fragment.CountryFragment.Companion.countries
 import com.sadeghjfr22.covid19.view.fragment.HomeFragment
 import com.sadeghjfr22.covid19.view.fragment.HomeFragment.Companion.global
-import okhttp3.CipherSuite
-import okhttp3.ConnectionSpec
-import okhttp3.OkHttpClient
-import okhttp3.TlsVersion
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import java.util.*
 
 
 object ClientApi {
@@ -42,21 +36,19 @@ object ClientApi {
   }
 
 
-  fun getGlobalInformation(){
+  fun getGlobal(){
 
         lateinit var request: InterfaceApi
 
         request = getApiClient(Constants.BASE_URL)!!.create(InterfaceApi::class.java)
 
-        request.getGlobalInformation().enqueue(object : Callback<Result> {
+        request.getGlobal().enqueue(object : Callback<Global> {
 
-            override fun onResponse(call: Call<Result>, response: retrofit2.Response<Result>) {
+            override fun onResponse(call: Call<Global>, response: retrofit2.Response<Global>) {
 
-                if (response.code() == 200 && response.body()?.Global!=null && response.body()?.Countries!=null){
+                if (response.code() == 200 && response.body()!=null){
 
-                    global = response.body()!!.Global
-                    allCountryStatistics.clear()
-                    allCountryStatistics.addAll(response.body()!!.Countries)
+                    global = response.body()!!
                     HomeFragment.setInformation(true)
                 }
 
@@ -70,8 +62,8 @@ object ClientApi {
 
             }
 
-            override fun onFailure(call: Call<Result>, t: Throwable) {
-                Log.i(TAG,"getGlobalInformation:"+t.message)
+            override fun onFailure(call: Call<Global>, t: Throwable) {
+                Log.i(TAG,"getGlobal:"+t.message)
                 HomeFragment.setInformation(false)
 
             }
@@ -81,42 +73,40 @@ object ClientApi {
 
     }
 
-  fun getCountryInformation(){
+  fun getCountries(){
 
+        lateinit var request: InterfaceApi
 
-      lateinit var request: InterfaceApi
+        request = getApiClient(Constants.BASE_URL)!!.create(InterfaceApi::class.java)
 
-      request = getApiClient(Constants.COUNTRY_URL)!!.create(InterfaceApi::class.java)
+        request.getCountries().enqueue(object : Callback<List<Country>> {
 
-      request.getCountryInformation().enqueue(object : Callback<List<CountryInformation>> {
+            override fun onResponse(call: Call<List<Country>>, response: retrofit2.Response<List<Country>>) {
 
-          override fun onResponse(call: Call<List<CountryInformation>>, response: retrofit2.Response<List<CountryInformation>>) {
+                if (response.code() == 200 && response.body() != null){
 
+                    countries.clear()
+                    countries.addAll(response.body()!!)
+                    CountryFragment.setInformation()
+                }
 
-              if (response.code() == 200 && response.body() != null){
+                else{
 
-                  allCountryInformation.clear()
-                  allCountryInformation.addAll(response.body()!!)
-                  CountryFragment.setInformation()
-              }
+                    Log.i(TAG,"code:"+response.code())
+                    Log.i(TAG,"errorBody:"+response.errorBody())
+                    CountryFragment.setComponentVisibility(VISIBLE, VISIBLE, GONE, GONE)
+                }
 
-              else{
+            }
 
-                  Log.i(TAG,"code:"+response.code())
-                  Log.i(TAG,"errorBody:"+response.errorBody())
-                  CountryFragment.setComponentVisibility(VISIBLE, VISIBLE, GONE, GONE)
-              }
+            override fun onFailure(call: Call<List<Country>>, t: Throwable) {
 
-          }
+                Log.i(TAG,"getCountries:"+t.message)
+                CountryFragment.setComponentVisibility(VISIBLE, VISIBLE, GONE, GONE)
+            }
 
-          override fun onFailure(call: Call<List<CountryInformation>>, t: Throwable) {
+        })
 
-              Log.i(TAG,"getCountryInformation:"+t.message)
-              CountryFragment.setComponentVisibility(VISIBLE, VISIBLE, GONE, GONE)
-          }
-
-      })
-
-  }
+    }
 
 }

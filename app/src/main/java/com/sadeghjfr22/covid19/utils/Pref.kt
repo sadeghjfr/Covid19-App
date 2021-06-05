@@ -5,19 +5,19 @@ import com.sadeghjfr22.covid19.base.App
 
 object Pref {
 
-    fun storeData(key: String, data: String) {
+    fun storeData(key: String, data: Long) {
 
         val preferences = PreferenceManager.getDefaultSharedPreferences(App.getContext())
         val editor = preferences.edit()
-        editor.putString(key, data)
+        editor.putLong(key, data)
         editor.apply()
 
     }
 
-    fun retrieveData(key:String): String {
+    fun retrieveData(key:String): Long {
 
         val preferences = PreferenceManager.getDefaultSharedPreferences(App.getContext())
-        return preferences.getString(key, "0").toString()
+        return preferences.getLong(key,0)
     }
 
 }

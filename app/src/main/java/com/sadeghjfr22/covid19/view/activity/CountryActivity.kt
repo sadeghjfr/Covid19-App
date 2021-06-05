@@ -7,7 +7,7 @@ import com.sadeghjfr22.covid19.base.BaseActivity
 import com.sadeghjfr22.covid19.databinding.ActivityCountryBinding
 import com.sadeghjfr22.covid19.model.Country
 import com.sadeghjfr22.covid19.utils.Utils.loadImage
-import com.sadeghjfr22.covid19.view.fragment.CountryFragment.Companion.allCountries
+import com.sadeghjfr22.covid19.view.fragment.CountryFragment.Companion.countries
 import java.text.DecimalFormat
 import java.text.SimpleDateFormat
 import java.util.*
@@ -34,9 +34,9 @@ class CountryActivity : BaseActivity() {
 
         val countryName = intent.extras?.get("Country")
 
-        for (item in allCountries){
+        for (item in countries){
 
-            if (item.name.equals(countryName)){
+            if (item.country.equals(countryName)){
                 country = item
                 break
             }
@@ -47,23 +47,22 @@ class CountryActivity : BaseActivity() {
     private fun setInformation(){
 
         val decimalFormat = DecimalFormat("###,###")
-        val population = decimalFormat.format(Integer.valueOf(country.population))
+        val population = decimalFormat.format(country.population)
 
-        binding.txtName.setText(country.name)
-        binding.txtCapital.setText(country.capital)
-        binding.txtRegion.setText(country.region)
+        binding.txtName.setText(country.country)
+        binding.txtRegion.setText(country.continent)
         binding.txtPopulation.setText("+ " + population)
 
-        binding.imgFlag.loadImage(country.flag)
+        binding.imgFlag.loadImage(country.countryInfo.flag)
 
-        binding.txtTitleCountry.setText("آمار لحظه ای کرونا ویروس در "+country.name)
+        binding.txtTitleCountry.setText("آمار لحظه ای کرونا ویروس در "+country.country)
 
-        binding.txtNewConfirmedCountry.setText(decimalFormat.format(Integer.valueOf(country.newConfirmed)))
-        binding.txtTotalConfirmedCountry.setText(decimalFormat.format(Integer.valueOf(country.totalConfirmed)))
-        binding.txtNewDeathsCountry.setText(decimalFormat.format(Integer.valueOf(country.newDeaths)))
-        binding.txtTotalDeathsCountry.setText(decimalFormat.format(Integer.valueOf(country.totalDeaths)))
-        binding.txtNewRecoveredCountry.setText(decimalFormat.format(Integer.valueOf(country.newRecovered)))
-        binding.txtTotalRecoveredCountry.setText(decimalFormat.format(Integer.valueOf(country.totalRecovered)))
+        binding.txtNewConfirmedCountry.setText(decimalFormat.format(country.todayCases))
+        binding.txtTotalConfirmedCountry.setText(decimalFormat.format(country.cases))
+        binding.txtNewDeathsCountry.setText(decimalFormat.format(country.todayDeaths))
+        binding.txtTotalDeathsCountry.setText(decimalFormat.format(country.deaths))
+        binding.txtNewRecoveredCountry.setText(decimalFormat.format(country.todayRecovered))
+        binding.txtTotalRecoveredCountry.setText(decimalFormat.format(country.recovered))
 
         var pattern = "d  HH:mm MMM"
 

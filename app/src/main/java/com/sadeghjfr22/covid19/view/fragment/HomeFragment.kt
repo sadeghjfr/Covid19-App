@@ -11,7 +11,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.sadeghjfr22.covid19.R
-import com.sadeghjfr22.covid19.api.ClientApi.getGlobalInformation
+import com.sadeghjfr22.covid19.api.ClientApi.getGlobal
 import com.sadeghjfr22.covid19.base.App.Companion.getContext
 import com.sadeghjfr22.covid19.databinding.FragmentHomeBinding
 import com.sadeghjfr22.covid19.model.Global
@@ -27,7 +27,7 @@ class HomeFragment : Fragment() {
 
         @SuppressLint("StaticFieldLeak")
         lateinit var binding: FragmentHomeBinding
-        var global = Global("0", "0", "0", "0", "0", "0")
+        var global = Global(0,0,0,0,0,0,0)
 
         val decimalFormat = DecimalFormat("###,###")
 
@@ -37,21 +37,15 @@ class HomeFragment : Fragment() {
             if (!status) {
 
                 getDataFromLocal()
-
                 Toast.makeText(getContext(), R.string.error_connection, Toast.LENGTH_SHORT).show()
             }
 
-            val totalConfirmed = decimalFormat.format(Integer.valueOf(global.TotalConfirmed))
-
-            val newConfirmed = decimalFormat.format(Integer.valueOf(global.NewConfirmed))
-
-            val totalRecovered = decimalFormat.format(Integer.valueOf(global.TotalRecovered))
-
-            val newRecovered = decimalFormat.format(Integer.valueOf(global.NewRecovered))
-
-            val totalDeaths = decimalFormat.format(Integer.valueOf(global.TotalDeaths))
-
-            val newDeaths = decimalFormat.format(Integer.valueOf(global.NewDeaths))
+            val totalConfirmed = decimalFormat.format(global.cases)
+            val newConfirmed = decimalFormat.format(global.todayCases)
+            val totalRecovered = decimalFormat.format(global.recovered)
+            val newRecovered = decimalFormat.format(global.todayRecovered)
+            val totalDeaths = decimalFormat.format(global.deaths)
+            val newDeaths = decimalFormat.format(global.todayDeaths)
 
             binding.txtTotalConfirmed.setText(totalConfirmed)
             binding.txtNewConfirmed.setText(newConfirmed)
@@ -62,7 +56,7 @@ class HomeFragment : Fragment() {
 
             setComponentVisibility(VISIBLE, GONE)
 
-            setLastUpdate(status)
+            //setLastUpdate(status)
 
             saveDataToLocal()
 
@@ -70,14 +64,12 @@ class HomeFragment : Fragment() {
 
         private fun setComponentVisibility(parent: Int, spinKit: Int){
 
-
             binding.parent.visibility = parent
             binding.spinKit.visibility = spinKit
-
             binding.swipeRefreshLayout.isRefreshing = false
         }
 
-        private fun setLastUpdate(status: Boolean) {
+       /* private fun setLastUpdate(status: Boolean) {
 
             var time = retrieveData("LAST_UPDATE")
 
@@ -97,26 +89,26 @@ class HomeFragment : Fragment() {
             storeData("LAST_UPDATE", time)
 
             binding.txtLastUpdate.setText("آخرین بروز رسانی  "+time)
-        }
+        }*/
 
         private fun getDataFromLocal(){
 
-            global.TotalConfirmed = retrieveData("TotalConfirmed")
-            global.NewConfirmed = retrieveData("NewConfirmed")
-            global.TotalRecovered = retrieveData("TotalRecovered")
-            global.NewRecovered = retrieveData("NewRecovered")
-            global.TotalDeaths = retrieveData("TotalDeaths")
-            global.NewDeaths = retrieveData("NewDeaths")
+            global.cases = retrieveData("TotalConfirmed")
+            global.todayCases = retrieveData("NewConfirmed")
+            global.recovered = retrieveData("TotalRecovered")
+            global.todayRecovered = retrieveData("NewRecovered")
+            global.deaths = retrieveData("TotalDeaths")
+            global.todayDeaths = retrieveData("NewDeaths")
         }
 
         private fun saveDataToLocal(){
 
-            storeData("TotalConfirmed", global.TotalConfirmed)
-            storeData("NewConfirmed", global.NewConfirmed)
-            storeData("TotalRecovered", global.TotalRecovered)
-            storeData("NewRecovered", global.NewRecovered)
-            storeData("TotalDeaths", global.TotalDeaths)
-            storeData("NewDeaths", global.NewDeaths)
+            storeData("TotalConfirmed", global.cases)
+            storeData("NewConfirmed", global.todayCases)
+            storeData("TotalRecovered", global.recovered)
+            storeData("NewRecovered", global.todayRecovered)
+            storeData("TotalDeaths", global.deaths)
+            storeData("NewDeaths", global.todayDeaths)
         }
 
 
@@ -128,9 +120,9 @@ class HomeFragment : Fragment() {
 
         setComponentVisibility(GONE, VISIBLE)
 
-        getGlobalInformation()
+        getGlobal()
 
-        binding.swipeRefreshLayout.setOnRefreshListener { getGlobalInformation() }
+        binding.swipeRefreshLayout.setOnRefreshListener { getGlobal() }
 
         return binding.root
     }

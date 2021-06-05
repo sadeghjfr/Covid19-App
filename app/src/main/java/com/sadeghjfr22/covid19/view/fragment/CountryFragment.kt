@@ -4,28 +4,20 @@ import android.annotation.SuppressLint
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
-import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
-import com.sadeghjfr22.covid19.api.ClientApi.getCountryInformation
+import com.sadeghjfr22.covid19.api.ClientApi.getCountries
 import com.sadeghjfr22.covid19.base.App.Companion.getContext
 import com.sadeghjfr22.covid19.databinding.FragmentCountryBinding
 import com.sadeghjfr22.covid19.model.Country
-import com.sadeghjfr22.covid19.model.CountryInformation
-import com.sadeghjfr22.covid19.model.CountryStatistics
-import com.sadeghjfr22.covid19.utils.Constants
-import com.sadeghjfr22.covid19.utils.Constants.TAG
-import com.sadeghjfr22.covid19.utils.Utils
 import com.sadeghjfr22.covid19.utils.Utils.hideKeyboard
 import com.sadeghjfr22.covid19.view.CountryAdapter
-import java.util.*
 import kotlin.collections.ArrayList
 
 class CountryFragment : Fragment() {
@@ -34,9 +26,7 @@ class CountryFragment : Fragment() {
 
         @SuppressLint("StaticFieldLeak")
         lateinit var binding: FragmentCountryBinding
-        var allCountryStatistics:MutableList<CountryStatistics> = ArrayList()
-        var allCountryInformation:MutableList<CountryInformation> = ArrayList()
-        var allCountries:MutableList<Country> = ArrayList()
+        var countries:MutableList<Country> = ArrayList()
         var filteredCountries:MutableList<Country> = ArrayList()
 
         @SuppressLint("StaticFieldLeak")
@@ -44,12 +34,10 @@ class CountryFragment : Fragment() {
 
         fun setInformation(){
 
-            getAllCountries()
-            Utils.fixSomeCountryNames()
-            Utils.translateRegion()
-            Utils.translateCapital()
-            Utils.persianAlphabetically()
-            setAdapter(allCountries)
+            //Utils.fixSomeCountryNames()
+            //Utils.translateRegion()
+            //Utils.persianAlphabetically()
+            setAdapter(countries)
             setComponentVisibility(GONE, GONE, VISIBLE, GONE)
 
         }
@@ -61,41 +49,6 @@ class CountryFragment : Fragment() {
             adapter.notifyDataSetChanged()
         }
 
-        fun getAllCountries(){
-
-            allCountries.clear()
-
-            for (item in allCountryStatistics){
-
-                for (item2 in allCountryInformation){
-
-                    if (item.CountryCode.equals(item2.alpha2Code)) {
-
-                        var country = Country(
-                            item2.translations.fa,
-                            item2.capital,
-                            item2.region,
-                            item2.population,
-                            item2.flag,
-                            item.NewConfirmed,
-                            item.TotalConfirmed,
-                            item.NewDeaths,
-                            item.TotalDeaths,
-                            item.NewRecovered,
-                            item.TotalRecovered,
-                            item.Date
-                        )
-
-                        allCountries.add(country)
-
-                        break
-
-                    }
-                }
-
-            }
-
-        }
 
         fun setComponentVisibility(txtNoInternet: Int, imgNoInternet: Int, parent: Int, spinKit: Int){
 
@@ -113,7 +66,7 @@ class CountryFragment : Fragment() {
 
         initData()
 
-        getCountryInformation()
+        getCountries()
 
         binding.edtSearch.addTextChangedListener(object : TextWatcher {
 
@@ -125,7 +78,7 @@ class CountryFragment : Fragment() {
 
                 if (str.toString().trim().equals("")) {
 
-                    setAdapter(allCountries)
+                    setAdapter(countries)
                     binding.btnClose.visibility = GONE
                 }
 
@@ -143,7 +96,7 @@ class CountryFragment : Fragment() {
             filteredCountries.clear()
             binding.edtSearch.setText("")
             binding.btnClose.visibility = GONE
-            setAdapter(allCountries)
+            setAdapter(countries)
         })
 
         binding.edtSearch.setOnEditorActionListener { _, actionId, _ ->
@@ -169,9 +122,9 @@ class CountryFragment : Fragment() {
 
         filteredCountries.clear()
 
-        for (item in allCountries){
+        for (item in countries){
 
-            if (item.name.contains(str)){
+            if (item.country.contains(str)){
 
                 filteredCountries.add(item)
             }

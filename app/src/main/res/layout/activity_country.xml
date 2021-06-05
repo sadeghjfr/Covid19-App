@@ -86,39 +86,6 @@
                     android:orientation="horizontal">
 
                     <TextView
-                        android:id="@+id/txtCapital"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="0.7"
-                        android:gravity="center"
-                        android:text="تهران"
-                        android:textColor="@color/colorPrimaryVariant"
-                        android:textSize="12sp" />
-
-                    <TextView
-                        android:id="@+id/textView3"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="0.3"
-                        android:text="پایتخت"
-                        android:textColor="@color/colorHint"
-                        android:textSize="12sp" />
-                </LinearLayout>
-
-                <View
-                    android:id="@+id/view3"
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="@color/colorPrimary" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="0.25"
-                    android:gravity="center|right"
-                    android:orientation="horizontal">
-
-                    <TextView
                         android:id="@+id/txtRegion"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"

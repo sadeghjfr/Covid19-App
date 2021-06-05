@@ -9,11 +9,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
-import coil.ImageLoader
-import coil.decode.SvgDecoder
-import coil.request.ImageRequest
 import com.sadeghjfr22.covid19.R
-import com.sadeghjfr22.covid19.base.App
 import com.sadeghjfr22.covid19.base.App.Companion.currentActivity
 import com.sadeghjfr22.covid19.model.Country
 import com.sadeghjfr22.covid19.utils.Utils.loadImage
@@ -21,11 +17,11 @@ import com.sadeghjfr22.covid19.view.activity.CountryActivity
 
 class CountryAdapter : RecyclerView.Adapter<CountryAdapter.MyViewHolder> {
 
-    var allCountries : List<Country>
+    var countries : List<Country>
     var context : Context
 
-    constructor(allCountries: List<Country>, context: Context) : super() {
-        this.allCountries = allCountries
+    constructor(countries: List<Country>, context: Context) : super() {
+        this.countries = countries
         this.context = context
 
     }
@@ -51,16 +47,16 @@ class CountryAdapter : RecyclerView.Adapter<CountryAdapter.MyViewHolder> {
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
 
-      val country = allCountries.get(position)
+      val country = countries.get(position)
 
-        holder.txtCountryName.setText(country.name)
+        holder.txtCountryName.setText(country.country)
 
-        holder.imgFlag.loadImage(country.flag)
+        holder.imgFlag.loadImage(country.countryInfo.flag)
 
         holder.root.setOnClickListener(View.OnClickListener {
 
             val intent = Intent(currentActivity,CountryActivity::class.java)
-            intent.putExtra("Country",country.name)
+            intent.putExtra("Country",country.country)
             currentActivity.startActivity(intent)
 
         })
@@ -69,7 +65,7 @@ class CountryAdapter : RecyclerView.Adapter<CountryAdapter.MyViewHolder> {
 
     override fun getItemCount(): Int {
 
-        return allCountries.size;
+        return countries.size;
     }
 
 
