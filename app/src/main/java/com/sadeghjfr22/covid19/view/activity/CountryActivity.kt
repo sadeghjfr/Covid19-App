@@ -2,6 +2,7 @@ package com.sadeghjfr22.covid19.view.activity
 
 import android.os.Build
 import android.os.Bundle
+import android.view.View
 import com.sadeghjfr22.covid19.base.BaseActivity
 import com.sadeghjfr22.covid19.databinding.ActivityCountryBinding
 import com.sadeghjfr22.covid19.model.Country
@@ -24,6 +25,9 @@ class CountryActivity : BaseActivity() {
 
         getCurrentCountry()
         setInformation()
+
+        binding.btnBack.setOnClickListener(View.OnClickListener { onBackPressed() })
+
     }
 
     private fun getCurrentCountry(){

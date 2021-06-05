@@ -10,6 +10,8 @@ import android.view.View
 import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.view.ViewGroup
+import android.view.inputmethod.EditorInfo
+import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import com.sadeghjfr22.covid19.api.ClientApi.getCountryInformation
@@ -19,7 +21,9 @@ import com.sadeghjfr22.covid19.model.Country
 import com.sadeghjfr22.covid19.model.CountryInformation
 import com.sadeghjfr22.covid19.model.CountryStatistics
 import com.sadeghjfr22.covid19.utils.Constants
+import com.sadeghjfr22.covid19.utils.Constants.TAG
 import com.sadeghjfr22.covid19.utils.Utils
+import com.sadeghjfr22.covid19.utils.Utils.hideKeyboard
 import com.sadeghjfr22.covid19.view.CountryAdapter
 import java.util.*
 import kotlin.collections.ArrayList
@@ -141,6 +145,14 @@ class CountryFragment : Fragment() {
             binding.btnClose.visibility = GONE
             setAdapter(allCountries)
         })
+
+        binding.edtSearch.setOnEditorActionListener { _, actionId, _ ->
+            if (actionId == EditorInfo.IME_ACTION_SEARCH) {
+                hideKeyboard()
+
+            }
+            true
+        }
 
 
         return binding.root

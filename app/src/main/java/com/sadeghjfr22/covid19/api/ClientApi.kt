@@ -52,7 +52,7 @@ object ClientApi {
 
             override fun onResponse(call: Call<Result>, response: retrofit2.Response<Result>) {
 
-                if (response.code() == 200){
+                if (response.code() == 200 && response.body()?.Global!=null && response.body()?.Countries!=null){
 
                     global = response.body()!!.Global
                     allCountryStatistics.clear()
@@ -93,7 +93,7 @@ object ClientApi {
           override fun onResponse(call: Call<List<CountryInformation>>, response: retrofit2.Response<List<CountryInformation>>) {
 
 
-              if (response.code() == 200){
+              if (response.code() == 200 && response.body() != null){
 
                   allCountryInformation.clear()
                   allCountryInformation.addAll(response.body()!!)
