@@ -6,133 +6,164 @@
     android:layout_height="match_parent"
     app:layout_insetEdge="top">
 
-    <LinearLayout
-        android:id="@+id/linearLayout3"
-        android:layout_width="0dp"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:orientation="vertical"
+        android:layout_marginTop="20dp"
+        app:cardBackgroundColor="@color/colorPrimaryDark"
+        app:cardCornerRadius="15dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:text="Resource"
-            android:textColor="#5f5f5f"
-            android:textSize="20sp" />
+        <LinearLayout
+            android:id="@+id/linearLayout3"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="25dp">
 
-        <TextView
-            android:id="@+id/txtResource"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:inputType="textUri"
-            android:text="www.who.int"
-            android:textColor="@color/colorPrimaryDark"
-            android:textSize="16sp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Resources"
+                android:textColor="@color/colorPrimary"
+                android:textSize="20sp" />
 
-    </LinearLayout>
+            <TextView
+                android:id="@+id/txtResource1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:autoLink="web"
+                android:inputType="textUri"
+                android:text="www.worldometers.info"
+                android:textColor="@color/colorPrimaryVariant"
+                android:textColorLink="@color/colorPrimaryVariant"
+                android:textSize="16sp" />
 
-    <LinearLayout
-        android:id="@+id/linearLayout2"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginTop="25dp"
-        android:gravity="center"
-        android:orientation="vertical"
+            <TextView
+                android:id="@+id/txtResource2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:autoLink="web"
+                android:inputType="textUri"
+                android:text="www.newsapi.org"
+                android:textColor="@color/colorPrimaryVariant"
+                android:textColorLink="@color/colorPrimaryVariant"
+                android:textSize="16sp" />
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        app:cardBackgroundColor="@color/colorPrimaryDark"
+        app:cardCornerRadius="15dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout3">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Developer"
-            android:textColor="#5f5f5f"
-            android:textSize="20sp" />
+        app:layout_constraintTop_toBottomOf="@+id/cardView">
 
         <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:orientation="horizontal">
+            android:id="@+id/linearLayout2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="25dp">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Sadegh Jafari"
-                android:textColor="@color/colorPrimaryDark"
-                android:textSize="16sp" />
+                android:text="Developer"
+                android:textColor="@color/colorPrimary"
+                android:textSize="20sp" />
 
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/lytTelegram"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:gravity="center_vertical"
-            android:layoutDirection="ltr"
-            android:onClick="onClick"
-            android:orientation="horizontal">
-
-            <ImageView
-                android:id="@+id/imageView11"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:layout_marginRight="5dp"
-                android:clickable="false"
-                android:longClickable="false"
-                android:scaleType="centerInside"
-                app:srcCompat="@drawable/ic_us_telegram" />
-
-            <TextView
-                android:id="@+id/txtTelegram"
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:clickable="false"
-                android:longClickable="false"
-                android:text="sad_jfr"
-                android:textColor="@color/colorPrimaryDark"
-                android:textSize="16sp" />
+                android:layout_marginTop="15dp"
+                android:orientation="horizontal">
 
-        </LinearLayout>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Sadegh Jafari"
+                    android:textColor="@color/colorPrimaryVariant"
+                    android:textSize="16sp" />
 
-        <LinearLayout
-            android:id="@+id/lytInsta"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:gravity="center_vertical"
-            android:layoutDirection="ltr"
-            android:onClick="onClick"
-            android:orientation="horizontal">
+            </LinearLayout>
 
-            <ImageView
-                android:id="@+id/imageView14"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:layout_marginRight="5dp"
-                android:clickable="false"
-                android:longClickable="false"
-                android:scaleType="centerInside"
-                app:srcCompat="@drawable/ic_us_insta" />
-
-            <TextView
-                android:id="@+id/txtInstagram"
+            <LinearLayout
+                android:id="@+id/lytTelegram"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:clickable="false"
-                android:longClickable="false"
-                android:text="sad.jfr"
-                android:textColor="@color/colorPrimaryDark"
-                android:textSize="16sp" />
+                android:layout_marginTop="15dp"
+                android:gravity="center_vertical"
+                android:layoutDirection="ltr"
+                android:onClick="onClick"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/imageView11"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginRight="5dp"
+                    android:clickable="false"
+                    android:longClickable="false"
+                    android:scaleType="centerInside"
+                    app:srcCompat="@drawable/ic_us_telegram" />
+
+                <TextView
+                    android:id="@+id/txtTelegram"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:clickable="false"
+                    android:longClickable="false"
+                    android:text="sad_jfr"
+                    android:textColor="@color/colorPrimaryVariant"
+                    android:textSize="16sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/lytInsta"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:gravity="center_vertical"
+                android:layoutDirection="ltr"
+                android:onClick="onClick"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/imageView14"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginRight="5dp"
+                    android:clickable="false"
+                    android:longClickable="false"
+                    android:scaleType="centerInside"
+                    app:srcCompat="@drawable/ic_us_insta" />
+
+                <TextView
+                    android:id="@+id/txtInstagram"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:clickable="false"
+                    android:longClickable="false"
+                    android:text="sad.jfr"
+                    android:textColor="@color/colorPrimaryVariant"
+                    android:textSize="16sp" />
+
+            </LinearLayout>
 
         </LinearLayout>
-
-    </LinearLayout>
+    </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
