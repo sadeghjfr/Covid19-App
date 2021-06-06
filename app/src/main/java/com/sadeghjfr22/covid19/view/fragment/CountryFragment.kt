@@ -17,7 +17,7 @@ import com.sadeghjfr22.covid19.databinding.FragmentCountryBinding
 import com.sadeghjfr22.covid19.model.Country
 import com.sadeghjfr22.covid19.utils.Utils
 import com.sadeghjfr22.covid19.utils.Utils.hideKeyboard
-import com.sadeghjfr22.covid19.view.CountryAdapter
+import com.sadeghjfr22.covid19.view.adapter.CountryAdapter
 import java.util.*
 import kotlin.collections.ArrayList
 

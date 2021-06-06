@@ -1,4 +1,4 @@
-package com.sadeghjfr22.covid19.view
+package com.sadeghjfr22.covid19.view.adapter
 
 import android.content.Context
 import android.content.Intent

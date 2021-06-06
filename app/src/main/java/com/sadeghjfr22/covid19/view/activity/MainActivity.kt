@@ -17,6 +17,7 @@ import com.sadeghjfr22.covid19.utils.CustomFont.Companion.applyFontToMenuItem
 import com.sadeghjfr22.covid19.view.fragment.CountryFragment
 import com.sadeghjfr22.covid19.view.fragment.HomeFragment
 import com.sadeghjfr22.covid19.view.fragment.InfoFragment
+import com.sadeghjfr22.covid19.view.fragment.NewsFragment
 
 
 class MainActivity : BaseActivity(), BottomNavigationView.OnNavigationItemSelectedListener {
@@ -41,6 +42,7 @@ class MainActivity : BaseActivity(), BottomNavigationView.OnNavigationItemSelect
         applyFontToMenuItem(binding.navigation.menu.getItem(0))
         applyFontToMenuItem(binding.navigation.menu.getItem(1))
         applyFontToMenuItem(binding.navigation.menu.getItem(2))
+        applyFontToMenuItem(binding.navigation.menu.getItem(3))
     }
 
     fun launchFragment(fragment: Fragment){
@@ -57,6 +59,8 @@ class MainActivity : BaseActivity(), BottomNavigationView.OnNavigationItemSelect
             R.id.nav_home    -> launchFragment(HomeFragment())
 
             R.id.nav_country -> launchFragment(CountryFragment())
+
+            R.id.nav_news    -> launchFragment(NewsFragment())
 
             R.id.nav_info    -> launchFragment(InfoFragment())
 

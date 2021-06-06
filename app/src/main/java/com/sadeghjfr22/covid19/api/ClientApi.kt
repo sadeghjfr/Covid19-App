@@ -6,12 +6,15 @@ import android.view.View.VISIBLE
 import com.google.gson.GsonBuilder
 import com.sadeghjfr22.covid19.model.Country
 import com.sadeghjfr22.covid19.model.Global
+import com.sadeghjfr22.covid19.model.NewsBase
 import com.sadeghjfr22.covid19.utils.Constants
 import com.sadeghjfr22.covid19.utils.Constants.TAG
 import com.sadeghjfr22.covid19.view.fragment.CountryFragment
 import com.sadeghjfr22.covid19.view.fragment.CountryFragment.Companion.countries
 import com.sadeghjfr22.covid19.view.fragment.HomeFragment
 import com.sadeghjfr22.covid19.view.fragment.HomeFragment.Companion.global
+import com.sadeghjfr22.covid19.view.fragment.NewsFragment
+import com.sadeghjfr22.covid19.view.fragment.NewsFragment.Companion.news
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Retrofit
@@ -103,6 +106,42 @@ object ClientApi {
 
                 Log.i(TAG,"getCountries:"+t.message)
                 CountryFragment.setComponentVisibility(VISIBLE, VISIBLE, GONE, GONE)
+            }
+
+        })
+
+    }
+
+  fun getNews(){
+
+        lateinit var request: InterfaceApi
+
+        request = getApiClient(Constants.NEWS_URL)!!.create(InterfaceApi::class.java)
+
+        request.getNews().enqueue(object : Callback<NewsBase> {
+
+            override fun onResponse(call: Call<NewsBase>, response: retrofit2.Response<NewsBase>) {
+
+                if (response.code() == 200 && response.body() != null){
+
+                    news.clear()
+                    news.addAll(response.body()!!.news)
+                    NewsFragment.setInformation()
+                }
+
+                else{
+
+                    Log.i(TAG,"code:"+response.code())
+                    Log.i(TAG,"errorBody:"+response.errorBody())
+                    NewsFragment.setComponentVisibility(VISIBLE, VISIBLE, GONE, GONE)
+                }
+
+            }
+
+            override fun onFailure(call: Call<NewsBase>, t: Throwable) {
+
+                Log.i(TAG,"getNews:"+t.message)
+                NewsFragment.setComponentVisibility(VISIBLE, VISIBLE, GONE, GONE)
             }
 
         })
