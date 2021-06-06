@@ -1,6 +1,5 @@
 package com.sadeghjfr22.covid19.view.fragment
 
-import android.annotation.SuppressLint
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -16,27 +15,25 @@ import com.sadeghjfr22.covid19.api.ClientApi.getCountries
 import com.sadeghjfr22.covid19.base.App.Companion.getContext
 import com.sadeghjfr22.covid19.databinding.FragmentCountryBinding
 import com.sadeghjfr22.covid19.model.Country
+import com.sadeghjfr22.covid19.utils.Utils
 import com.sadeghjfr22.covid19.utils.Utils.hideKeyboard
 import com.sadeghjfr22.covid19.view.CountryAdapter
+import java.util.*
 import kotlin.collections.ArrayList
 
 class CountryFragment : Fragment() {
 
     companion object{
 
-        @SuppressLint("StaticFieldLeak")
         lateinit var binding: FragmentCountryBinding
         var countries:MutableList<Country> = ArrayList()
         var filteredCountries:MutableList<Country> = ArrayList()
 
-        @SuppressLint("StaticFieldLeak")
         lateinit var adapter: CountryAdapter
 
         fun setInformation(){
 
-            //Utils.fixSomeCountryNames()
-            //Utils.translateRegion()
-            //Utils.persianAlphabetically()
+            Utils.translateCountryNames()
             setAdapter(countries)
             setComponentVisibility(GONE, GONE, VISIBLE, GONE)
 
@@ -48,7 +45,6 @@ class CountryFragment : Fragment() {
             binding.recyclerView.adapter = adapter
             adapter.notifyDataSetChanged()
         }
-
 
         fun setComponentVisibility(txtNoInternet: Int, imgNoInternet: Int, parent: Int, spinKit: Int){
 
@@ -124,7 +120,7 @@ class CountryFragment : Fragment() {
 
         for (item in countries){
 
-            if (item.country.contains(str)){
+            if (item.country.toLowerCase(Locale.ROOT).contains(str.toLowerCase(Locale.ROOT))) {
 
                 filteredCountries.add(item)
             }

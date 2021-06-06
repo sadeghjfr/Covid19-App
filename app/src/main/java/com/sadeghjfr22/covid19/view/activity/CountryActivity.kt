@@ -1,13 +1,17 @@
 package com.sadeghjfr22.covid19.view.activity
 
+import android.graphics.Typeface
 import android.os.Build
 import android.os.Bundle
 import android.view.View
+import com.sadeghjfr22.covid19.base.App
 import com.sadeghjfr22.covid19.base.BaseActivity
 import com.sadeghjfr22.covid19.databinding.ActivityCountryBinding
 import com.sadeghjfr22.covid19.model.Country
+import com.sadeghjfr22.covid19.utils.Utils
 import com.sadeghjfr22.covid19.utils.Utils.loadImage
 import com.sadeghjfr22.covid19.view.fragment.CountryFragment.Companion.countries
+import com.sadeghjfr22.covid19.view.fragment.HomeFragment
 import java.text.DecimalFormat
 import java.text.SimpleDateFormat
 import java.util.*
@@ -64,19 +68,8 @@ class CountryActivity : BaseActivity() {
         binding.txtNewRecoveredCountry.setText(decimalFormat.format(country.todayRecovered))
         binding.txtTotalRecoveredCountry.setText(decimalFormat.format(country.recovered))
 
-        var pattern = "d  HH:mm MMM"
-
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-
-            pattern = "HH:mm  d MMM"
-        }
-
-        val sdf = SimpleDateFormat(pattern)
-        val time = sdf.format(Date())
-
-        binding.txtLastUpdateCountry.setText("آخرین بروز رسانی  "+time)
+        Utils.setLastUpdate(binding.txtLastUpdateCountry,country.updated)
     }
-
 
 
 }

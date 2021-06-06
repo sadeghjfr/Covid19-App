@@ -1,6 +1,7 @@
 package com.sadeghjfr22.covid19.view.fragment
 
 import android.annotation.SuppressLint
+import android.graphics.Typeface
 import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -12,11 +13,14 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.sadeghjfr22.covid19.R
 import com.sadeghjfr22.covid19.api.ClientApi.getGlobal
+import com.sadeghjfr22.covid19.base.App.Companion.currentActivity
 import com.sadeghjfr22.covid19.base.App.Companion.getContext
 import com.sadeghjfr22.covid19.databinding.FragmentHomeBinding
 import com.sadeghjfr22.covid19.model.Global
+import com.sadeghjfr22.covid19.utils.CustomFont
 import com.sadeghjfr22.covid19.utils.Pref.retrieveData
 import com.sadeghjfr22.covid19.utils.Pref.storeData
+import com.sadeghjfr22.covid19.utils.Utils
 import java.text.DecimalFormat
 import java.text.SimpleDateFormat
 import java.util.*
@@ -31,10 +35,10 @@ class HomeFragment : Fragment() {
 
         val decimalFormat = DecimalFormat("###,###")
 
-        fun setInformation(status: Boolean) {
+        fun setInformation(connection: Boolean) {
 
 
-            if (!status) {
+            if (!connection) {
 
                 getDataFromLocal()
                 Toast.makeText(getContext(), R.string.error_connection, Toast.LENGTH_SHORT).show()
@@ -47,6 +51,8 @@ class HomeFragment : Fragment() {
             val totalDeaths = decimalFormat.format(global.deaths)
             val newDeaths = decimalFormat.format(global.todayDeaths)
 
+            Utils.setLastUpdate(binding.txtLastUpdate, global.updated)
+
             binding.txtTotalConfirmed.setText(totalConfirmed)
             binding.txtNewConfirmed.setText(newConfirmed)
             binding.txtTotalRecovered.setText(totalRecovered)
@@ -55,8 +61,6 @@ class HomeFragment : Fragment() {
             binding.txtNewDeaths.setText(newDeaths)
 
             setComponentVisibility(VISIBLE, GONE)
-
-            //setLastUpdate(status)
 
             saveDataToLocal()
 
@@ -69,28 +73,6 @@ class HomeFragment : Fragment() {
             binding.swipeRefreshLayout.isRefreshing = false
         }
 
-       /* private fun setLastUpdate(status: Boolean) {
-
-            var time = retrieveData("LAST_UPDATE")
-
-            if (status){
-
-                var pattern = "d  HH:mm MMM"
-
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-
-                    pattern = "HH:mm  d MMM"
-                }
-
-                val sdf = SimpleDateFormat(pattern)
-                time = sdf.format(Date())
-            }
-
-            storeData("LAST_UPDATE", time)
-
-            binding.txtLastUpdate.setText("آخرین بروز رسانی  "+time)
-        }*/
-
         private fun getDataFromLocal(){
 
             global.cases = retrieveData("TotalConfirmed")
@@ -99,6 +81,7 @@ class HomeFragment : Fragment() {
             global.todayRecovered = retrieveData("NewRecovered")
             global.deaths = retrieveData("TotalDeaths")
             global.todayDeaths = retrieveData("NewDeaths")
+            global.updated = retrieveData("UPDATED")
         }
 
         private fun saveDataToLocal(){
@@ -109,8 +92,8 @@ class HomeFragment : Fragment() {
             storeData("NewRecovered", global.todayRecovered)
             storeData("TotalDeaths", global.deaths)
             storeData("NewDeaths", global.todayDeaths)
+            storeData("UPDATED", global.updated)
         }
-
 
     }
 
