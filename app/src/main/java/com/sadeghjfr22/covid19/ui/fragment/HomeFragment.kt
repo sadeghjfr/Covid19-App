@@ -1,8 +1,6 @@
-package com.sadeghjfr22.covid19.view.fragment
+package com.sadeghjfr22.covid19.ui.fragment
 
 import android.annotation.SuppressLint
-import android.graphics.Typeface
-import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -13,17 +11,13 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.sadeghjfr22.covid19.R
 import com.sadeghjfr22.covid19.api.ClientApi.getGlobal
-import com.sadeghjfr22.covid19.base.App.Companion.currentActivity
 import com.sadeghjfr22.covid19.base.App.Companion.getContext
 import com.sadeghjfr22.covid19.databinding.FragmentHomeBinding
 import com.sadeghjfr22.covid19.model.Global
-import com.sadeghjfr22.covid19.utils.CustomFont
 import com.sadeghjfr22.covid19.utils.Pref.retrieveData
 import com.sadeghjfr22.covid19.utils.Pref.storeData
 import com.sadeghjfr22.covid19.utils.Utils
 import java.text.DecimalFormat
-import java.text.SimpleDateFormat
-import java.util.*
 
 class HomeFragment : Fragment() {
 

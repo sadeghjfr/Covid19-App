@@ -8,7 +8,7 @@
     android:background="@color/colorPrimary"
     android:gravity="center"
     android:orientation="vertical"
-    tools:context=".view.fragment.HomeFragment">
+    tools:context=".ui.fragment.HomeFragment">
 
   <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
       android:id="@+id/swipeRefreshLayout"

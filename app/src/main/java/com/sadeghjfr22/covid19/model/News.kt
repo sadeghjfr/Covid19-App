@@ -6,4 +6,5 @@ class News (var id:String,
             var url:String,
             var author:String,
             var image:String,
-            var published:String)
+            var published:String,
+            var expended:Boolean)

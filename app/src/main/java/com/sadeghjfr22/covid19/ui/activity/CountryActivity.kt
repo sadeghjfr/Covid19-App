@@ -1,19 +1,14 @@
-package com.sadeghjfr22.covid19.view.activity
+package com.sadeghjfr22.covid19.ui.activity
 
-import android.graphics.Typeface
-import android.os.Build
 import android.os.Bundle
 import android.view.View
-import com.sadeghjfr22.covid19.base.App
 import com.sadeghjfr22.covid19.base.BaseActivity
 import com.sadeghjfr22.covid19.databinding.ActivityCountryBinding
 import com.sadeghjfr22.covid19.model.Country
 import com.sadeghjfr22.covid19.utils.Utils
+import com.sadeghjfr22.covid19.ui.fragment.CountryFragment.Companion.countries
 import com.sadeghjfr22.covid19.utils.Utils.loadImage
-import com.sadeghjfr22.covid19.view.fragment.CountryFragment.Companion.countries
-import com.sadeghjfr22.covid19.view.fragment.HomeFragment
 import java.text.DecimalFormat
-import java.text.SimpleDateFormat
 import java.util.*
 
 

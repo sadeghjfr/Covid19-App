@@ -4,20 +4,19 @@ import android.app.Activity
 import android.content.Context
 import android.graphics.Typeface
 import android.os.Build
-import android.util.Log
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
 import coil.request.ImageRequest
 import coil.transform.RoundedCornersTransformation
+import com.sadeghjfr22.covid19.R
 import com.sadeghjfr22.covid19.base.App
 import com.sadeghjfr22.covid19.base.App.Companion.getContext
 import com.sadeghjfr22.covid19.model.Country
-import com.sadeghjfr22.covid19.utils.Constants.TAG
-import com.sadeghjfr22.covid19.view.fragment.CountryFragment.Companion.countries
+import com.sadeghjfr22.covid19.ui.fragment.CountryFragment.Companion.countries
+import com.sadeghjfr22.covid19.utils.Utils.loadImage
 import java.text.Collator
 import java.text.SimpleDateFormat
 import java.util.*
@@ -91,6 +90,7 @@ object Utils {
             .transformations(RoundedCornersTransformation(20f))
             .data(url)
             .target(this)
+            .error(R.drawable.ic_no_pic)
             .build()
 
         App.imageLoader.enqueue(request)

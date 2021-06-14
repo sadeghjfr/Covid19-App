@@ -1,4 +1,4 @@
-package com.sadeghjfr22.covid19.view.adapter
+package com.sadeghjfr22.covid19.ui.adapter
 
 import android.content.Context
 import android.content.Intent
@@ -13,7 +13,7 @@ import com.sadeghjfr22.covid19.R
 import com.sadeghjfr22.covid19.base.App.Companion.currentActivity
 import com.sadeghjfr22.covid19.model.Country
 import com.sadeghjfr22.covid19.utils.Utils.loadImage
-import com.sadeghjfr22.covid19.view.activity.CountryActivity
+import com.sadeghjfr22.covid19.ui.activity.CountryActivity
 
 class CountryAdapter : RecyclerView.Adapter<CountryAdapter.MyViewHolder> {
 

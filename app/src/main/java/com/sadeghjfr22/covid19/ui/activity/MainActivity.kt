@@ -1,23 +1,18 @@
-package com.sadeghjfr22.covid19.view.activity
+package com.sadeghjfr22.covid19.ui.activity
 
 import android.graphics.Typeface
 import android.os.Bundle
-import android.util.Log
-import android.view.Menu
 import android.view.MenuItem
-import android.view.View
 import androidx.fragment.app.Fragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.sadeghjfr22.covid19.R
 import com.sadeghjfr22.covid19.base.BaseActivity
 import com.sadeghjfr22.covid19.databinding.ActivityMainBinding
-import com.sadeghjfr22.covid19.utils.Constants
-import com.sadeghjfr22.covid19.utils.Constants.TAG
 import com.sadeghjfr22.covid19.utils.CustomFont.Companion.applyFontToMenuItem
-import com.sadeghjfr22.covid19.view.fragment.CountryFragment
-import com.sadeghjfr22.covid19.view.fragment.HomeFragment
-import com.sadeghjfr22.covid19.view.fragment.InfoFragment
-import com.sadeghjfr22.covid19.view.fragment.NewsFragment
+import com.sadeghjfr22.covid19.ui.fragment.CountryFragment
+import com.sadeghjfr22.covid19.ui.fragment.HomeFragment
+import com.sadeghjfr22.covid19.ui.fragment.InfoFragment
+import com.sadeghjfr22.covid19.ui.fragment.NewsFragment
 
 
 class MainActivity : BaseActivity(), BottomNavigationView.OnNavigationItemSelectedListener {

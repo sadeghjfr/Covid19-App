@@ -40,6 +40,7 @@ class App : MultiDexApplication() {
 
         setImageLoader()
 
+        // for some security bugs in some Android versions
         updateAndroidSecurityProvider()
 
     }

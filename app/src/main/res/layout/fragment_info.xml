@@ -1,21 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
     app:layout_insetEdge="top">
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/cardView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginBottom="15dp"
         app:cardBackgroundColor="@color/colorPrimaryDark"
-        app:cardCornerRadius="15dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:cardCornerRadius="15dp">
 
         <LinearLayout
             android:id="@+id/linearLayout3"
@@ -26,6 +24,7 @@
             android:padding="25dp">
 
             <TextView
+                android:id="@+id/txtTitleResource"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Resources"
@@ -62,12 +61,9 @@
     <androidx.cardview.widget.CardView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="15dp"
         app:cardBackgroundColor="@color/colorPrimaryDark"
-        app:cardCornerRadius="15dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cardView">
+        app:cardCornerRadius="15dp">
 
         <LinearLayout
             android:id="@+id/linearLayout2"
@@ -78,6 +74,7 @@
             android:padding="25dp">
 
             <TextView
+                android:id="@+id/txtTitleDeveloper"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Developer"
@@ -91,6 +88,7 @@
                 android:orientation="horizontal">
 
                 <TextView
+                    android:id="@+id/txtDeveloperName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Sadegh Jafari"
@@ -117,7 +115,7 @@
                     android:clickable="false"
                     android:longClickable="false"
                     android:scaleType="centerInside"
-                    app:srcCompat="@drawable/ic_us_telegram" />
+                    app:srcCompat="@drawable/ic_telegram" />
 
                 <TextView
                     android:id="@+id/txtTelegram"
@@ -149,7 +147,7 @@
                     android:clickable="false"
                     android:longClickable="false"
                     android:scaleType="centerInside"
-                    app:srcCompat="@drawable/ic_us_insta" />
+                    app:srcCompat="@drawable/ic_insta" />
 
                 <TextView
                     android:id="@+id/txtInstagram"
@@ -166,4 +164,5 @@
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+</LinearLayout>

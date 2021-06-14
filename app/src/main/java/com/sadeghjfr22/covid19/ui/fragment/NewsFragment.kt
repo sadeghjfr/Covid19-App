@@ -1,4 +1,4 @@
-package com.sadeghjfr22.covid19.view.fragment
+package com.sadeghjfr22.covid19.ui.fragment
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -6,16 +6,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.GridLayoutManager
-import com.sadeghjfr22.covid19.R
 import com.sadeghjfr22.covid19.api.ClientApi.getNews
 import com.sadeghjfr22.covid19.base.App
-import com.sadeghjfr22.covid19.databinding.FragmentCountryBinding
 import com.sadeghjfr22.covid19.databinding.FragmentNewsBinding
-import com.sadeghjfr22.covid19.model.Country
 import com.sadeghjfr22.covid19.model.News
-import com.sadeghjfr22.covid19.utils.Utils
-import com.sadeghjfr22.covid19.view.adapter.CountryAdapter
-import com.sadeghjfr22.covid19.view.adapter.NewsAdapter
+import com.sadeghjfr22.covid19.ui.adapter.NewsAdapter
 import java.util.ArrayList
 
 class NewsFragment : Fragment() {

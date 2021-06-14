@@ -1,4 +1,4 @@
-package com.sadeghjfr22.covid19.view.activity
+package com.sadeghjfr22.covid19.ui.activity
 
 import android.animation.Animator
 import android.content.Intent
