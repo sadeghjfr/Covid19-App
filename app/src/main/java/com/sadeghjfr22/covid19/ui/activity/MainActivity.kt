@@ -1,6 +1,10 @@
 package com.sadeghjfr22.covid19.ui.activity
 
+import android.app.AlertDialog
+import android.content.Intent
 import android.graphics.Typeface
+import android.net.Uri
+import android.os.Build
 import android.os.Bundle
 import android.view.MenuItem
 import androidx.fragment.app.Fragment
@@ -8,12 +12,11 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.sadeghjfr22.covid19.R
 import com.sadeghjfr22.covid19.base.BaseActivity
 import com.sadeghjfr22.covid19.databinding.ActivityMainBinding
-import com.sadeghjfr22.covid19.utils.CustomFont.Companion.applyFontToMenuItem
 import com.sadeghjfr22.covid19.ui.fragment.CountryFragment
 import com.sadeghjfr22.covid19.ui.fragment.HomeFragment
 import com.sadeghjfr22.covid19.ui.fragment.InfoFragment
 import com.sadeghjfr22.covid19.ui.fragment.NewsFragment
-
+import com.sadeghjfr22.covid19.utils.CustomFont.Companion.applyFontToMenuItem
 
 class MainActivity : BaseActivity(), BottomNavigationView.OnNavigationItemSelectedListener {
 
@@ -25,7 +28,6 @@ class MainActivity : BaseActivity(), BottomNavigationView.OnNavigationItemSelect
         setContentView(binding.root)
         initData()
     }
-
 
     private fun initData(){
 
@@ -62,6 +64,38 @@ class MainActivity : BaseActivity(), BottomNavigationView.OnNavigationItemSelect
         }
 
         return true
+    }
+
+    override fun onBackPressed() {
+
+        val builder: AlertDialog.Builder =
+
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP)
+                AlertDialog.Builder(this, android.R.style.Theme_Material_Dialog_Alert)
+
+            else
+                AlertDialog.Builder(this)
+
+        builder
+            .setMessage("از برنامه خارج می شوید؟")
+            .setPositiveButton("بله") { dialog, which ->
+
+                super.onBackPressed()
+                dialog.cancel()
+            }
+            .setNegativeButton("ثبت نظر و امتیاز") { dialog, which -> comment() }
+            .show()
+    }
+
+    private fun comment(){
+
+        try {
+            val url = "myket://comment?id=com.sadeghjfr22.covid19"
+            val intent = Intent()
+            intent.action = Intent.ACTION_VIEW
+            intent.data = Uri.parse(url)
+            startActivity(intent)
+        } catch (e: Exception){ finish() }
     }
 
 }
