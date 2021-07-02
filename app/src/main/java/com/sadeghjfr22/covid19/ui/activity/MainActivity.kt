@@ -90,10 +90,10 @@ class MainActivity : BaseActivity(), BottomNavigationView.OnNavigationItemSelect
     private fun comment(){
 
         try {
-            val url = "myket://comment?id=com.sadeghjfr22.covid19"
-            val intent = Intent()
-            intent.action = Intent.ACTION_VIEW
+            val url = "bazaar://details?id=com.sadeghjfr22.covid19"
+            val intent = Intent(Intent.ACTION_EDIT)
             intent.data = Uri.parse(url)
+            intent.setPackage("com.farsitel.bazaar")
             startActivity(intent)
         } catch (e: Exception){ finish() }
     }
