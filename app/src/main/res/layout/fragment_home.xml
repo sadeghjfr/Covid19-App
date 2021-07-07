@@ -308,20 +308,6 @@
               app:layout_constraintGuide_percent="0.15" />
 
           <androidx.constraintlayout.widget.Guideline
-              android:id="@+id/guideline19"
-              android:layout_width="wrap_content"
-              android:layout_height="wrap_content"
-              android:orientation="horizontal"
-              app:layout_constraintGuide_percent="0.1" />
-
-          <androidx.constraintlayout.widget.Guideline
-              android:id="@+id/guideline20"
-              android:layout_width="wrap_content"
-              android:layout_height="wrap_content"
-              android:orientation="horizontal"
-              app:layout_constraintGuide_percent="0.05" />
-
-          <androidx.constraintlayout.widget.Guideline
               android:id="@+id/guideline13"
               android:layout_width="wrap_content"
               android:layout_height="wrap_content"
@@ -418,10 +404,10 @@
               android:text="آمار لحظه ای کرونا ویروس در جهان"
               android:textColor="@color/colorPrimaryDark"
               android:textSize="16sp"
-              app:layout_constraintBottom_toTopOf="@+id/guideline19"
+              app:layout_constraintBottom_toTopOf="@+id/guideline2"
               app:layout_constraintEnd_toStartOf="@+id/guideline4"
               app:layout_constraintStart_toStartOf="@+id/guideline3"
-              app:layout_constraintTop_toTopOf="@+id/guideline20" />
+              app:layout_constraintTop_toTopOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

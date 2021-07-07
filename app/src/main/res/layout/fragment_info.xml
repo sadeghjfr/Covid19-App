@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -9,11 +9,14 @@
     app:layout_insetEdge="top">
 
     <androidx.cardview.widget.CardView
-        android:layout_width="wrap_content"
+        android:id="@+id/cardView"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="15dp"
         app:cardBackgroundColor="@color/colorPrimaryDark"
-        app:cardCornerRadius="15dp">
+        app:cardCornerRadius="15dp"
+        app:layout_constraintEnd_toStartOf="@+id/guideline22"
+        app:layout_constraintStart_toStartOf="@+id/guideline21"
+        app:layout_constraintTop_toTopOf="@+id/guideline10">
 
         <LinearLayout
             android:id="@+id/linearLayout3"
@@ -32,6 +35,18 @@
                 android:textSize="20sp" />
 
             <TextView
+                android:id="@+id/txtResource2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:autoLink="web"
+                android:inputType="textUri"
+                android:text="www.newsapi.org"
+                android:textColor="@color/colorPrimaryVariant"
+                android:textColorLink="@color/colorPrimaryVariant"
+                android:textSize="16sp" />
+
+            <TextView
                 android:id="@+id/txtResource1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -44,39 +59,10 @@
                 android:textSize="16sp" />
 
             <TextView
-                android:id="@+id/txtResource2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:autoLink="web"
-                android:inputType="textUri"
-                android:text="www.newsapi.org"
-                android:textColor="@color/colorPrimaryVariant"
-                android:textColorLink="@color/colorPrimaryVariant"
-                android:textSize="16sp" />
-
-        </LinearLayout>
-    </androidx.cardview.widget.CardView>
-
-    <androidx.cardview.widget.CardView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        app:cardBackgroundColor="@color/colorPrimaryDark"
-        app:cardCornerRadius="15dp">
-
-        <LinearLayout
-            android:id="@+id/linearLayout2"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:orientation="vertical"
-            android:padding="25dp">
-
-            <TextView
                 android:id="@+id/txtTitleDeveloper"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
                 android:text="Developer"
                 android:textColor="@color/colorPrimary"
                 android:textSize="20sp" />
@@ -92,38 +78,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Sadegh Jafari"
-                    android:textColor="@color/colorPrimaryVariant"
-                    android:textSize="16sp" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/lytTelegram"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:gravity="center_vertical"
-                android:layoutDirection="ltr"
-                android:onClick="onClick"
-                android:orientation="horizontal">
-
-                <ImageView
-                    android:id="@+id/imageView11"
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
-                    android:layout_marginRight="5dp"
-                    android:clickable="false"
-                    android:longClickable="false"
-                    android:scaleType="centerInside"
-                    app:srcCompat="@drawable/ic_telegram" />
-
-                <TextView
-                    android:id="@+id/txtTelegram"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:clickable="false"
-                    android:longClickable="false"
-                    android:text="sad_jfr"
                     android:textColor="@color/colorPrimaryVariant"
                     android:textSize="16sp" />
 
@@ -161,8 +115,61 @@
 
             </LinearLayout>
 
+            <LinearLayout
+                android:id="@+id/lytTelegram"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:gravity="center_vertical"
+                android:layoutDirection="ltr"
+                android:onClick="onClick"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/imageView11"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginRight="5dp"
+                    android:clickable="false"
+                    android:longClickable="false"
+                    android:scaleType="centerInside"
+                    app:srcCompat="@drawable/ic_telegram" />
+
+                <TextView
+                    android:id="@+id/txtTelegram"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:clickable="false"
+                    android:longClickable="false"
+                    android:text="sad_jfr"
+                    android:textColor="@color/colorPrimaryVariant"
+                    android:textSize="16sp" />
+
+            </LinearLayout>
+
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.1" />
 
-</LinearLayout>
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline21"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.1" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline22"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.9" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
