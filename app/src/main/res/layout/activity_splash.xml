@@ -29,6 +29,7 @@
         android:id="@+id/txtSplash"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/yekan_bold"
         android:padding="20dp"
         android:text="آمار جهانی کرونا ویروس"
         android:textColor="@color/colorPrimaryVariant"

@@ -34,6 +34,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="15dp"
                 android:layout_marginEnd="5dp"
+                android:fontFamily="@font/play_fair"
                 android:gravity="left"
                 android:text="A title for news. A title for news. A title for news. A title for news. A title for news. A title for news. A title for news.  "
                 android:textColor="@color/colorPrimaryVariant"
@@ -56,6 +57,7 @@
                 android:id="@+id/txtDescNews"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/play_fair"
                 android:text="A desc for news. A desc for news. A desc for news. A desc for news. A desc for news. A desc for news. A desc for news. A desc for news. A desc for news. A desc for news. A desc for news. A desc for news. A desc for news. A desc for news. A desc for news. A desc for news. A desc for news. A desc for news. A desc for news. A desc for news. A desc for news. A desc for news. A desc for news. A desc for news. A desc for news. A desc for news. A desc for news. A desc for news. A desc for news. A desc for news. A desc for news. A desc for news. A desc for nee"
                 android:textColor="@color/colorPrimary"
                 android:textSize="10sp" />
@@ -70,6 +72,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="7dp"
+                    android:fontFamily="@font/play_fair"
                     android:text="Sadegh J"
                     android:textColor="@color/colorHint"
                     android:textSize="10sp" />
@@ -80,6 +83,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
                     android:layout_marginTop="7dp"
+                    android:fontFamily="@font/play_fair"
                     android:text="2021-06-06 14:07:24 +0000"
                     android:textColor="@color/colorHint"
                     android:textSize="10sp" />
@@ -91,6 +95,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
+                android:fontFamily="@font/play_fair"
                 android:text="Read more..."
                 android:textColor="#03dac5"
                 android:textSize="12sp" />

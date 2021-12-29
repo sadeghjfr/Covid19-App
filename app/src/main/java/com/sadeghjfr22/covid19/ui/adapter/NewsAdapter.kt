@@ -23,18 +23,8 @@ import com.sadeghjfr22.covid19.utils.Constants.TAG
 import com.sadeghjfr22.covid19.utils.Utils.loadImage
 
 
-class NewsAdapter : RecyclerView.Adapter<NewsAdapter.MyViewHolder> {
-
-    var news : List<News>
-    var context : Context
-    var font : Typeface
-
-    constructor(news: List<News>, context: Context) : super() {
-        this.news = news
-        this.context = context
-        font = Typeface.createFromAsset(App.currentActivity.assets, "fonts/playFair.ttf")
-
-    }
+class NewsAdapter(var news: List<News>, var context: Context) :
+    RecyclerView.Adapter<NewsAdapter.MyViewHolder>() {
 
     class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
@@ -70,12 +60,6 @@ class NewsAdapter : RecyclerView.Adapter<NewsAdapter.MyViewHolder> {
       holder.txtAuthor.setText(currentNews.author)
       holder.txtPublished.setText(time)
       holder.imgNews.loadImage(currentNews.image)
-
-      holder.txtTitle.setTypeface(font)
-      holder.txtDesc.setTypeface(font)
-      holder.txtAuthor.setTypeface(font)
-      holder.txtPublished.setTypeface(font)
-      holder.txtReadMore.setTypeface(font)
 
       holder.txtReadMore.setOnClickListener(View.OnClickListener {
 

@@ -14,7 +14,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Covid19">
         <activity android:name=".ui.activity.CountryActivity" />
-        <activity android:name=".ui.activity.SplashActivity">
+        <activity android:name=".ui.activity.SplashActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />

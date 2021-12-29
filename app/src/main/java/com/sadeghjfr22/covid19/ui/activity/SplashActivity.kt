@@ -16,10 +16,7 @@ class SplashActivity : BaseActivity() {
         binding = ActivitySplashBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        var font = Typeface.createFromAsset(assets, "fonts/font_lalezar.ttf")
-        binding.txtSplash.setTypeface(font)
-
-        var intent:Intent
+        val intent:Intent
         intent = Intent(this, MainActivity::class.java)
 
         binding.lottieAnimationView.addAnimatorListener(object:Animator.AnimatorListener {

@@ -2,7 +2,6 @@ package com.sadeghjfr22.covid19.ui.activity
 
 import android.app.AlertDialog
 import android.content.Intent
-import android.graphics.Typeface
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
@@ -16,7 +15,6 @@ import com.sadeghjfr22.covid19.ui.fragment.CountryFragment
 import com.sadeghjfr22.covid19.ui.fragment.HomeFragment
 import com.sadeghjfr22.covid19.ui.fragment.InfoFragment
 import com.sadeghjfr22.covid19.ui.fragment.NewsFragment
-import com.sadeghjfr22.covid19.utils.CustomFont.Companion.applyFontToMenuItem
 
 class MainActivity : BaseActivity(), BottomNavigationView.OnNavigationItemSelectedListener {
 
@@ -31,15 +29,8 @@ class MainActivity : BaseActivity(), BottomNavigationView.OnNavigationItemSelect
 
     private fun initData(){
 
-        var font = Typeface.createFromAsset(assets, "fonts/font_lalezar.ttf")
-        binding.txtTitle.setTypeface(font)
-
         binding.navigation.setOnNavigationItemSelectedListener(this)
         binding.navigation.selectedItemId = R.id.nav_home
-        applyFontToMenuItem(binding.navigation.menu.getItem(0))
-        applyFontToMenuItem(binding.navigation.menu.getItem(1))
-        applyFontToMenuItem(binding.navigation.menu.getItem(2))
-        applyFontToMenuItem(binding.navigation.menu.getItem(3))
     }
 
     fun launchFragment(fragment: Fragment){

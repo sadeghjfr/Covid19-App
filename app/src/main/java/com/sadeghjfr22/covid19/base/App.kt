@@ -1,19 +1,13 @@
 package com.sadeghjfr22.covid19.base
 
-import android.R
 import android.app.Activity
 import android.content.Context
-import android.graphics.Typeface
 import androidx.multidex.MultiDexApplication
 import coil.ImageLoader
 import coil.decode.SvgDecoder
 import com.google.android.gms.common.GooglePlayServicesNotAvailableException
 import com.google.android.gms.common.GooglePlayServicesRepairableException
 import com.google.android.gms.security.ProviderInstaller
-import com.sadeghjfr22.covid19.utils.CustomFont
-import io.github.inflationx.calligraphy3.CalligraphyConfig
-import io.github.inflationx.calligraphy3.CalligraphyInterceptor
-import io.github.inflationx.viewpump.ViewPump
 import java.security.KeyManagementException
 import java.security.NoSuchAlgorithmException
 import javax.net.ssl.SSLContext
@@ -37,31 +31,10 @@ class App : MultiDexApplication() {
         super.onCreate()
         appContext = applicationContext
 
-        setFontToApp()
-
         setImageLoader()
 
         // for some security bugs in some Android versions
         updateAndroidSecurityProvider()
-
-    }
-
-    private fun setFontToApp(){
-
-        CustomFont.mainFont = Typeface.createFromAsset(assets, "fonts/BHoma.ttf")
-
-        ViewPump.init(
-            ViewPump.builder()
-                .addInterceptor(
-                    CalligraphyInterceptor(
-                        CalligraphyConfig.Builder()
-                            .setDefaultFontPath("fonts/BHoma.ttf")
-                            .setFontAttrId(R.attr.path)
-                            .build()
-                    )
-                )
-                .build()
-        )
 
     }
 

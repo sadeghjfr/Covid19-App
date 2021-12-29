@@ -25,7 +25,8 @@
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
           android:gravity="center"
-          android:orientation="vertical">
+          android:orientation="vertical"
+          android:paddingBottom="75dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/parent"
@@ -388,8 +389,9 @@
               android:id="@+id/txtLastUpdate"
               android:layout_width="0dp"
               android:layout_height="0dp"
+              style="@style/TextAppearance.UpdatedText"
               android:gravity="center"
-              android:text="- - - - -"
+              android:text="- - - - "
               android:textColor="#7f7f7f"
               android:textSize="12sp"
               app:layout_constraintBottom_toTopOf="@+id/guideline18"
@@ -402,7 +404,7 @@
               android:layout_height="0dp"
               android:gravity="center"
               android:text="آمار لحظه ای کرونا ویروس در جهان"
-              android:textColor="@color/colorPrimaryDark"
+              android:textColor="@color/colorPrimaryVariant"
               android:textSize="16sp"
               app:layout_constraintBottom_toTopOf="@+id/guideline2"
               app:layout_constraintEnd_toStartOf="@+id/guideline4"

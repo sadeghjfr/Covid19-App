@@ -9,7 +9,6 @@ import com.sadeghjfr22.covid19.utils.Utils
 import com.sadeghjfr22.covid19.ui.fragment.CountryFragment.Companion.countries
 import com.sadeghjfr22.covid19.utils.Utils.loadImage
 import java.text.DecimalFormat
-import java.util.*
 
 
 class CountryActivity : BaseActivity() {
@@ -64,6 +63,8 @@ class CountryActivity : BaseActivity() {
         binding.txtTotalRecoveredCountry.setText(decimalFormat.format(country.recovered))
 
         Utils.setLastUpdate(binding.txtLastUpdateCountry,country.updated)
+
+
     }
 
 

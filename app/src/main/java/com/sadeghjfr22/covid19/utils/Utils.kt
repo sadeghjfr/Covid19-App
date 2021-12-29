@@ -135,10 +135,6 @@ object Utils {
         view?.let { activity?.hideKeyboard(it) }
     }
 
-    fun Activity.hideKeyboard() {
-        hideKeyboard(currentFocus ?: View(getContext()))
-    }
-
     fun Context.hideKeyboard(view: View) {
         val inputMethodManager = getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
         inputMethodManager.hideSoftInputFromWindow(view.windowToken, 0)
@@ -150,8 +146,6 @@ object Utils {
         val dateString = formatter.format(Date(updated));
 
         textView.setText("last update :  "+dateString);
-        val font = Typeface.createFromAsset(App.currentActivity.assets, "fonts/font_lalezar.ttf")
-        textView.setTypeface(font)
 
     }
 
