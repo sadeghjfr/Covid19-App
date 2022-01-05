@@ -1,6 +1,5 @@
 package com.sadeghjfr22.covid19.base
 
-import android.app.Activity
 import android.content.Context
 import androidx.multidex.MultiDexApplication
 import coil.ImageLoader
@@ -18,7 +17,6 @@ class App : MultiDexApplication() {
     companion object {
 
         lateinit var appContext: Context
-        lateinit var currentActivity: Activity
         lateinit var imageLoader : ImageLoader
 
         fun getContext(): Context {

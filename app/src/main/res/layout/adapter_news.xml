@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/root"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:animateLayoutChanges="true"
     android:layoutDirection="ltr"
     android:orientation="horizontal"
     android:padding="7dp">
@@ -13,6 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="6dp"
+        android:animateLayoutChanges="true"
         android:background="@drawable/bg_layout"
         android:orientation="vertical"
         android:padding="10dp">
@@ -108,8 +109,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:background="@null"
-            app:tint="@color/colorPrimaryVariant"
-            app:srcCompat="@android:drawable/arrow_down_float" />
+            app:srcCompat="@android:drawable/arrow_down_float"
+            app:tint="@color/colorPrimaryVariant" />
 
     </LinearLayout>
 

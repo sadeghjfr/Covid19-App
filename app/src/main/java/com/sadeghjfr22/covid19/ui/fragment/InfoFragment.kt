@@ -30,23 +30,7 @@ class InfoFragment : Fragment() {
         binding.txtTelegram.setText("@sad_jfr")
         binding.txtInstagram.setText("@sad.jfr")
 
-        setFont()
-
         return binding.root
-    }
-
-    private fun setFont(){
-
-        val font = Typeface.createFromAsset(App.currentActivity.assets, "fonts/playFair.ttf")
-
-        binding.txtTitleResource.setTypeface(font)
-        binding.txtResource1.setTypeface(font)
-        binding.txtResource2.setTypeface(font)
-        binding.txtTitleDeveloper.setTypeface(font)
-        binding.txtDeveloperName.setTypeface(font)
-        binding.txtTelegram.setTypeface(font)
-        binding.txtInstagram.setTypeface(font)
-
     }
 
     private fun isAppAvailable(appName: String): Boolean {

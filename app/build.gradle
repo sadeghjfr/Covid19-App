@@ -74,6 +74,7 @@ dependencies {
     implementation 'androidx.multidex:multidex:2.0.1'
     //justified
     implementation 'com.codesgood:justifiedtextview:1.1.0'
+    implementation 'jp.wasabeef:blurry:4.0.1'
 
 
 }

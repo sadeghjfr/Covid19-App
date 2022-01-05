@@ -8,13 +8,13 @@ import android.os.Bundle
 import android.view.MenuItem
 import androidx.fragment.app.Fragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.sadeghjfr22.covid19.R
 import com.sadeghjfr22.covid19.base.BaseActivity
 import com.sadeghjfr22.covid19.databinding.ActivityMainBinding
 import com.sadeghjfr22.covid19.ui.fragment.CountryFragment
 import com.sadeghjfr22.covid19.ui.fragment.HomeFragment
 import com.sadeghjfr22.covid19.ui.fragment.InfoFragment
 import com.sadeghjfr22.covid19.ui.fragment.NewsFragment
+import com.sadeghjfr22.covid19.R
 
 class MainActivity : BaseActivity(), BottomNavigationView.OnNavigationItemSelectedListener {
 

@@ -2,7 +2,6 @@ package com.sadeghjfr22.covid19.utils
 
 import android.app.Activity
 import android.content.Context
-import android.graphics.Typeface
 import android.os.Build
 import android.view.View
 import android.view.inputmethod.InputMethodManager
@@ -13,10 +12,8 @@ import coil.request.ImageRequest
 import coil.transform.RoundedCornersTransformation
 import com.sadeghjfr22.covid19.R
 import com.sadeghjfr22.covid19.base.App
-import com.sadeghjfr22.covid19.base.App.Companion.getContext
 import com.sadeghjfr22.covid19.model.Country
 import com.sadeghjfr22.covid19.ui.fragment.CountryFragment.Companion.countries
-import com.sadeghjfr22.covid19.utils.Utils.loadImage
 import java.text.Collator
 import java.text.SimpleDateFormat
 import java.util.*
@@ -25,45 +22,15 @@ object Utils {
 
     fun translateCountryNames(){
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+       for (item in countries){
 
-            for (item in countries){
+           val country = Locale.Builder().setRegion(item.countryInfo.iso2).build()
+           val persian = Locale.Builder().setLanguage("fa").build()
+           item.country = country.getDisplayCountry(persian)
+       }
 
-                val country = Locale.Builder().setRegion(item.countryInfo.iso2).build()
-                val persian = Locale.Builder().setLanguage("fa").build()
-                item.country = country.getDisplayCountry(persian)
-            }
-
-            translateContinent()
-            persianAlphabetically()
-        }
-
-        else fixSomeCountryNames()
-
-    }
-
-    fun fixSomeCountryNames(){
-
-        for (item in countries){
-
-            when(item.country){
-
-                "Antigua and Barbuda" -> item.country = "Antigua & Barbuda"
-                "British Virgin Islands" -> item.country = "Virgin Islands"
-                "Caribbean Netherlands" -> item.country = "Caribbean"
-                "Central African Republic" -> item.country = "Central African"
-                "Falkland Islands (Malvinas)" -> item.country = "Falkland Islands"
-                "Holy See (Vatican City State)" -> item.country = "Vatican"
-                "Lao People's Democratic Republic" -> item.country = "Laos"
-                "Libyan Arab Jamahiriya" -> item.country = "Libya"
-                "Saint Vincent and the Grenadines" -> item.country = "Saint Vincent"
-                "Saint Pierre Miquelon" -> item.country = "Saint Pierre"
-                "Sao Tome and Principe" -> item.country = "Sao Tome"
-                "Syrian Arab Republic" -> item.country = "Syria"
-                "Turks and Caicos Islands" -> item.country = "Caicos Islands"
-
-            }
-        }
+       translateContinent()
+       persianAlphabetically()
     }
 
     fun translateContinent(){

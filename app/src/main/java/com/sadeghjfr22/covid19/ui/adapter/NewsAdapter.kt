@@ -64,7 +64,7 @@ class NewsAdapter(var news: List<News>, var context: Context) :
       holder.txtReadMore.setOnClickListener(View.OnClickListener {
 
           val intent = Intent(Intent.ACTION_VIEW, Uri.parse(currentNews.url))
-          App.currentActivity.startActivity(intent)
+          it.context.startActivity(intent)
       })
 
       val expended: Boolean = currentNews.expended

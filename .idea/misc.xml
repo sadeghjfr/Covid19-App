@@ -5,11 +5,12 @@
       <map>
         <entry key="app/src/main/res/drawable/bg_nav_selected.xml" value="0.1358108108108108" />
         <entry key="app/src/main/res/drawable/bg_navigation.xml" value="0.1358108108108108" />
+        <entry key="app/src/main/res/drawable/ic_no_pic.xml" value="0.1358108108108108" />
         <entry key="app/src/main/res/layout/activity_country.xml" value="0.2" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.22" />
         <entry key="app/src/main/res/layout/activity_splash.xml" value="0.1" />
         <entry key="app/src/main/res/layout/adapter_country.xml" value="0.12533783783783783" />
-        <entry key="app/src/main/res/layout/adapter_news.xml" value="0.12533783783783783" />
+        <entry key="app/src/main/res/layout/adapter_news.xml" value="0.2" />
         <entry key="app/src/main/res/layout/fragment_country.xml" value="0.17" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.12" />
         <entry key="app/src/main/res/layout/fragment_info.xml" value="0.12533783783783783" />

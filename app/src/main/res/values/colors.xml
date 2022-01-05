@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-  <color name="colorPrimaryDark">#000</color>
+  <color name="colorPrimaryDark">#0d0d0d</color>
   <color name="colorPrimary">#333</color>
-  <color name="colorPrimaryVariant">#FFC107</color>
+  <color name="colorPrimaryVariant">#FFCC00</color>
 
   <color name="colorSecondary">#FF03DAC5</color>
   <color name="colorSecondaryVariant">#FF018786</color>
@@ -12,6 +12,5 @@
   <color name="white">#FFFFFFFF</color>
 
   <color name="colorHint">#7f7f7f</color>
-  <color name="colorNavigationBottom">#ccFFC107</color>
 
 </resources>

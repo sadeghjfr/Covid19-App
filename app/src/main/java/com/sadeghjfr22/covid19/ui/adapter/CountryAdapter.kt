@@ -10,7 +10,6 @@ import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
 import com.sadeghjfr22.covid19.R
-import com.sadeghjfr22.covid19.base.App.Companion.currentActivity
 import com.sadeghjfr22.covid19.model.Country
 import com.sadeghjfr22.covid19.utils.Utils.loadImage
 import com.sadeghjfr22.covid19.ui.activity.CountryActivity
@@ -55,9 +54,9 @@ class CountryAdapter : RecyclerView.Adapter<CountryAdapter.MyViewHolder> {
 
         holder.root.setOnClickListener(View.OnClickListener {
 
-            val intent = Intent(currentActivity,CountryActivity::class.java)
+            val intent = Intent(it.context,CountryActivity::class.java)
             intent.putExtra("Country",country.country)
-            currentActivity.startActivity(intent)
+            it.context.startActivity(intent)
 
         })
 
