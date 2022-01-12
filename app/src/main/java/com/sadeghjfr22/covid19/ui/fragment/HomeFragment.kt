@@ -1,6 +1,8 @@
 package com.sadeghjfr22.covid19.ui.fragment
 
 import android.annotation.SuppressLint
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -9,15 +11,19 @@ import android.view.View.VISIBLE
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import com.sadeghjfr22.covid19.R
 import com.sadeghjfr22.covid19.api.ClientApi.getGlobal
-import com.sadeghjfr22.covid19.base.App.Companion.getContext
+import com.sadeghjfr22.covid19.App.Companion.getContext
 import com.sadeghjfr22.covid19.databinding.FragmentHomeBinding
 import com.sadeghjfr22.covid19.model.Global
 import com.sadeghjfr22.covid19.utils.Pref.retrieveData
 import com.sadeghjfr22.covid19.utils.Pref.storeData
 import com.sadeghjfr22.covid19.utils.Utils
 import java.text.DecimalFormat
+import androidx.activity.OnBackPressedCallback
+import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.view.ContextThemeWrapper
+import androidx.lifecycle.LifecycleOwner
+import com.sadeghjfr22.covid19.R
 
 class HomeFragment : Fragment() {
 
@@ -101,7 +107,47 @@ class HomeFragment : Fragment() {
 
         binding.swipeRefreshLayout.setOnRefreshListener { getGlobal() }
 
+        val callback: OnBackPressedCallback =
+            object : OnBackPressedCallback(true) {
+                override fun handleOnBackPressed() {
+                    onBackPressed()
+                }
+            }
+
+        requireActivity().onBackPressedDispatcher.addCallback(this as LifecycleOwner, callback)
+
         return binding.root
+    }
+
+    fun onBackPressed() {
+
+        val builder: AlertDialog.Builder =
+
+            AlertDialog.Builder(ContextThemeWrapper(requireContext(), R.style.AlertDialogCustom))
+
+        builder
+            .setMessage("از برنامه خارج می شوید؟")
+            .setPositiveButton("خروج") { dialog, which ->
+
+                requireActivity().finish()
+                dialog.cancel()
+            }
+            .setNegativeButton("ثبت نظر و امتیاز") { dialog, which -> comment() }
+            .show()
+
+    }
+
+    private fun comment(){
+
+        try {
+
+            val url = "myket://comment?id=com.sadeghjfr22.covid19"
+            val intent = Intent()
+            intent.action = Intent.ACTION_VIEW
+            intent.data = Uri.parse(url)
+            startActivity(intent)
+
+        } catch (e: Exception){ requireActivity().finish() }
     }
 
 }

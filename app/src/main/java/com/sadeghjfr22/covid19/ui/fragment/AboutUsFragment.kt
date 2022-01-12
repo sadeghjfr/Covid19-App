@@ -2,7 +2,6 @@ package com.sadeghjfr22.covid19.ui.fragment
 
 import android.content.Intent
 import android.content.pm.PackageManager
-import android.graphics.Typeface
 import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,18 +9,15 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import com.sadeghjfr22.covid19.base.App
-import com.sadeghjfr22.covid19.databinding.FragmentInfoBinding
+import com.sadeghjfr22.covid19.databinding.FragmentAboutUsBinding
 
+class AboutUsFragment : Fragment() {
 
-class InfoFragment : Fragment() {
-
-    lateinit var binding : FragmentInfoBinding
-
+    lateinit var binding : FragmentAboutUsBinding
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
-        binding = FragmentInfoBinding.inflate(inflater, container, false)
+        binding = FragmentAboutUsBinding.inflate(inflater, container, false)
 
         binding.lytTelegram.setOnClickListener(View.OnClickListener { getTelegram() })
 

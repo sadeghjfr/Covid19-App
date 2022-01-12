@@ -12,8 +12,8 @@ import android.view.inputmethod.EditorInfo
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import com.sadeghjfr22.covid19.api.ClientApi.getCountries
-import com.sadeghjfr22.covid19.base.App.Companion.getContext
-import com.sadeghjfr22.covid19.databinding.FragmentCountryBinding
+import com.sadeghjfr22.covid19.App.Companion.getContext
+import com.sadeghjfr22.covid19.databinding.FragmentCountryItemsBinding
 import com.sadeghjfr22.covid19.model.Country
 import com.sadeghjfr22.covid19.utils.Utils
 import com.sadeghjfr22.covid19.utils.Utils.hideKeyboard
@@ -21,11 +21,11 @@ import com.sadeghjfr22.covid19.ui.adapter.CountryAdapter
 import java.util.*
 import kotlin.collections.ArrayList
 
-class CountryFragment : Fragment() {
+class CountryItemsFragment : Fragment() {
 
     companion object{
 
-        lateinit var binding: FragmentCountryBinding
+        lateinit var binding: FragmentCountryItemsBinding
         var countries:MutableList<Country> = ArrayList()
         var filteredCountries:MutableList<Country> = ArrayList()
 
@@ -58,7 +58,7 @@ class CountryFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
-        binding = FragmentCountryBinding.inflate(inflater, container, false)
+        binding = FragmentCountryItemsBinding.inflate(inflater, container, false)
 
         initData()
 

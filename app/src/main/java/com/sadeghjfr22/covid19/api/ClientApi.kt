@@ -9,12 +9,12 @@ import com.sadeghjfr22.covid19.model.Global
 import com.sadeghjfr22.covid19.model.NewsBase
 import com.sadeghjfr22.covid19.utils.Constants
 import com.sadeghjfr22.covid19.utils.Constants.TAG
-import com.sadeghjfr22.covid19.ui.fragment.CountryFragment
-import com.sadeghjfr22.covid19.ui.fragment.CountryFragment.Companion.countries
+import com.sadeghjfr22.covid19.ui.fragment.CountryItemsFragment
+import com.sadeghjfr22.covid19.ui.fragment.CountryItemsFragment.Companion.countries
 import com.sadeghjfr22.covid19.ui.fragment.HomeFragment
 import com.sadeghjfr22.covid19.ui.fragment.HomeFragment.Companion.global
-import com.sadeghjfr22.covid19.ui.fragment.NewsFragment
-import com.sadeghjfr22.covid19.ui.fragment.NewsFragment.Companion.news
+import com.sadeghjfr22.covid19.ui.fragment.NewsItemsFragment
+import com.sadeghjfr22.covid19.ui.fragment.NewsItemsFragment.Companion.news
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Retrofit
@@ -90,14 +90,14 @@ object ClientApi {
 
                     countries.clear()
                     countries.addAll(response.body()!!)
-                    CountryFragment.setInformation()
+                    CountryItemsFragment.setInformation()
                 }
 
                 else{
 
                     Log.i(TAG,"code:"+response.code())
                     Log.i(TAG,"errorBody:"+response.errorBody())
-                    CountryFragment.setComponentVisibility(VISIBLE, VISIBLE, GONE, GONE)
+                    CountryItemsFragment.setComponentVisibility(VISIBLE, VISIBLE, GONE, GONE)
                 }
 
             }
@@ -105,7 +105,7 @@ object ClientApi {
             override fun onFailure(call: Call<List<Country>>, t: Throwable) {
 
                 Log.i(TAG,"getCountries:"+t.message)
-                CountryFragment.setComponentVisibility(VISIBLE, VISIBLE, GONE, GONE)
+                CountryItemsFragment.setComponentVisibility(VISIBLE, VISIBLE, GONE, GONE)
             }
 
         })
@@ -126,14 +126,14 @@ object ClientApi {
 
                     news.clear()
                     news.addAll(response.body()!!.news)
-                    NewsFragment.setInformation()
+                    NewsItemsFragment.setInformation()
                 }
 
                 else{
 
                     Log.i(TAG,"code:"+response.code())
                     Log.i(TAG,"errorBody:"+response.errorBody())
-                    NewsFragment.setComponentVisibility(VISIBLE, VISIBLE, GONE, GONE)
+                    NewsItemsFragment.setComponentVisibility(VISIBLE, VISIBLE, GONE, GONE)
                 }
 
             }
@@ -141,7 +141,7 @@ object ClientApi {
             override fun onFailure(call: Call<NewsBase>, t: Throwable) {
 
                 Log.i(TAG,"getNews:"+t.message)
-                NewsFragment.setComponentVisibility(VISIBLE, VISIBLE, GONE, GONE)
+                NewsItemsFragment.setComponentVisibility(VISIBLE, VISIBLE, GONE, GONE)
             }
 
         })

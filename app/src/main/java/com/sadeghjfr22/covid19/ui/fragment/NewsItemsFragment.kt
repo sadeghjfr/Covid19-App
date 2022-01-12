@@ -7,17 +7,17 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.GridLayoutManager
 import com.sadeghjfr22.covid19.api.ClientApi.getNews
-import com.sadeghjfr22.covid19.base.App
-import com.sadeghjfr22.covid19.databinding.FragmentNewsBinding
+import com.sadeghjfr22.covid19.App
+import com.sadeghjfr22.covid19.databinding.FragmentNewsItemsBinding
 import com.sadeghjfr22.covid19.model.News
 import com.sadeghjfr22.covid19.ui.adapter.NewsAdapter
 import java.util.ArrayList
 
-class NewsFragment : Fragment() {
+class NewsItemsFragment : Fragment() {
 
     companion object{
 
-        lateinit var binding: FragmentNewsBinding
+        lateinit var binding: FragmentNewsItemsBinding
         var news : MutableList<News> = ArrayList()
         lateinit var adapter: NewsAdapter
 
@@ -47,7 +47,7 @@ class NewsFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
-        binding = FragmentNewsBinding.inflate(inflater, container, false)
+        binding = FragmentNewsItemsBinding.inflate(inflater, container, false)
         initData()
 
         getNews();

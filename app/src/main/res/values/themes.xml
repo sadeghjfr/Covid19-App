@@ -9,6 +9,16 @@
 
   </style>
 
+  <style name="AlertDialogCustom" parent="Theme.Covid19">
+    <item name="fontFamily">@font/yekan_bold</item>
+    <item name="android:textSize">14sp</item>
+    <item name="android:background">@color/colorPrimary</item>
+    <item name="android:textColorPrimary">@color/colorPrimaryVariant</item>
+    <item name="colorPrimary">@color/colorPrimaryVariant</item>
+    <item name="android:letterSpacing">0</item>
+
+  </style>
+
   <style name="BottomNavigationView">
     <item name="itemTextAppearanceActive">@style/TextAppearance.BottomNavigationView.Active</item>
   </style>

@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-  <item android:id="@+id/nav_info"
+  <item android:id="@+id/aboutUsFragment"
       android:title="@string/about_us"
       android:icon="@drawable/ic_info">
 
   </item>
 
-  <item android:id="@+id/nav_news"
+  <item android:id="@+id/newsItemsFragment"
       android:title="@string/news"
       android:icon="@drawable/ic_news">
 
   </item>
 
-  <item android:id="@+id/nav_country"
+  <item android:id="@+id/countryItemsFragment"
       android:title="@string/country"
       android:icon="@drawable/ic_countries">
 
   </item>
 
-  <item android:id="@+id/nav_home"
+  <item android:id="@+id/homeFragment"
       android:title="@string/home"
       android:icon="@drawable/ic_home"
       >

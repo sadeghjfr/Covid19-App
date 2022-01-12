@@ -1,7 +1,7 @@
 package com.sadeghjfr22.covid19.utils
 
 import android.preference.PreferenceManager
-import com.sadeghjfr22.covid19.base.App
+import com.sadeghjfr22.covid19.App
 
 object Pref {
 

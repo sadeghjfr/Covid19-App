@@ -1,29 +1,22 @@
 package com.sadeghjfr22.covid19.ui.adapter
 
 import android.content.Context
-import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.os.bundleOf
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.sadeghjfr22.covid19.R
 import com.sadeghjfr22.covid19.model.Country
+import com.sadeghjfr22.covid19.ui.main.MainActivity
 import com.sadeghjfr22.covid19.utils.Utils.loadImage
-import com.sadeghjfr22.covid19.ui.activity.CountryActivity
 
-class CountryAdapter : RecyclerView.Adapter<CountryAdapter.MyViewHolder> {
-
-    var countries : List<Country>
-    var context : Context
-
-    constructor(countries: List<Country>, context: Context) : super() {
-        this.countries = countries
-        this.context = context
-
-    }
+class CountryAdapter(var countries: List<Country>, var context: Context) :
+    RecyclerView.Adapter<CountryAdapter.MyViewHolder>() {
 
     class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
@@ -35,11 +28,8 @@ class CountryAdapter : RecyclerView.Adapter<CountryAdapter.MyViewHolder> {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
 
-        val itemView = LayoutInflater.from(parent.context).inflate(
-            R.layout.adapter_country,
-            parent,
-            false
-        )
+        val itemView = LayoutInflater.from(parent.context)
+            .inflate(R.layout.adapter_country, parent,false)
 
         return MyViewHolder(itemView)
     }
@@ -54,10 +44,8 @@ class CountryAdapter : RecyclerView.Adapter<CountryAdapter.MyViewHolder> {
 
         holder.root.setOnClickListener(View.OnClickListener {
 
-            val intent = Intent(it.context,CountryActivity::class.java)
-            intent.putExtra("Country",country.country)
-            it.context.startActivity(intent)
-
+            val bundle = bundleOf("country" to country.country)
+            it.findNavController().navigate(R.id.action_countryItemsFragment_to_countryInfoFragment, bundle)
         })
 
     }
@@ -67,7 +55,4 @@ class CountryAdapter : RecyclerView.Adapter<CountryAdapter.MyViewHolder> {
         return countries.size;
     }
 
-
-
 }
-

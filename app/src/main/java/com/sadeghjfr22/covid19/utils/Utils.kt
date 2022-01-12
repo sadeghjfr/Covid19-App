@@ -2,7 +2,6 @@ package com.sadeghjfr22.covid19.utils
 
 import android.app.Activity
 import android.content.Context
-import android.os.Build
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.ImageView
@@ -11,9 +10,9 @@ import androidx.fragment.app.Fragment
 import coil.request.ImageRequest
 import coil.transform.RoundedCornersTransformation
 import com.sadeghjfr22.covid19.R
-import com.sadeghjfr22.covid19.base.App
+import com.sadeghjfr22.covid19.App
 import com.sadeghjfr22.covid19.model.Country
-import com.sadeghjfr22.covid19.ui.fragment.CountryFragment.Companion.countries
+import com.sadeghjfr22.covid19.ui.fragment.CountryItemsFragment.Companion.countries
 import java.text.Collator
 import java.text.SimpleDateFormat
 import java.util.*

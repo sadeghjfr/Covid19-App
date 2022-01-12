@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPrimary"
-    tools:context=".ui.activity.MainActivity">
+    tools:context=".ui.main.MainActivity">
 
   <androidx.appcompat.widget.Toolbar
       android:id="@+id/toolbar"
@@ -34,7 +34,7 @@
   </androidx.appcompat.widget.Toolbar>
 
   <com.google.android.material.bottomnavigation.BottomNavigationView
-      android:id="@+id/navigation"
+      android:id="@+id/bottom_navigation"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
       style="@style/BottomNavigationView"
@@ -51,16 +51,18 @@
 
   </com.google.android.material.bottomnavigation.BottomNavigationView>
 
-
-  <FrameLayout
-      android:id="@+id/frameLayout"
+  <androidx.fragment.app.FragmentContainerView
+      android:id="@+id/nav_host_fragment"
       android:layout_width="0dp"
       android:layout_height="0dp"
+      android:name="androidx.navigation.fragment.NavHostFragment"
+      app:defaultNavHost="true"
+      app:navGraph="@navigation/nav_graph"
       app:layout_constraintBottom_toBottomOf="parent"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toBottomOf="@+id/toolbar">
 
-  </FrameLayout>
+  </androidx.fragment.app.FragmentContainerView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

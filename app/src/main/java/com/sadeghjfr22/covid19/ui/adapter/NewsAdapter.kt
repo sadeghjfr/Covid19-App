@@ -2,9 +2,7 @@ package com.sadeghjfr22.covid19.ui.adapter
 
 import android.content.Context
 import android.content.Intent
-import android.graphics.Typeface
 import android.net.Uri
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.View.GONE
@@ -17,9 +15,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.codesgood.views.JustifiedTextView
 import com.sadeghjfr22.covid19.R
-import com.sadeghjfr22.covid19.base.App
 import com.sadeghjfr22.covid19.model.News
-import com.sadeghjfr22.covid19.utils.Constants.TAG
 import com.sadeghjfr22.covid19.utils.Utils.loadImage
 
 
