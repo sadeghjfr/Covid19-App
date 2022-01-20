@@ -80,7 +80,7 @@ class HomeFragment : Fragment() {
                     Status.ERROR -> {
                         binding.parent.visibility = VISIBLE
                         binding.spinKit.visibility = GONE
-                        getDataFromLocal(resource.data as GlobalModel)
+                        getDataFromLocal()
                         Toast.makeText(App.getContext(), R.string.error_connection, Toast.LENGTH_SHORT).show()
                         Log.e(TAG,"ERROR:"+it.message.toString())
                     }
@@ -114,15 +114,17 @@ class HomeFragment : Fragment() {
         saveDataToLocal(global)
     }
 
-    private fun getDataFromLocal(global: GlobalModel){
+    private fun getDataFromLocal(){
 
-        global.cases = retrieveData("TotalConfirmed")
-        global.todayCases = retrieveData("NewConfirmed")
-        global.recovered = retrieveData("TotalRecovered")
-        global.todayRecovered = retrieveData("NewRecovered")
-        global.deaths = retrieveData("TotalDeaths")
-        global.todayDeaths = retrieveData("NewDeaths")
-        global.updated = retrieveData("UPDATED")
+        val global= GlobalModel(retrieveData("TotalConfirmed"),
+                                retrieveData("NewConfirmed"),
+                                retrieveData("TotalRecovered"),
+                                retrieveData("NewRecovered"),
+                                retrieveData("TotalDeaths"),
+                                retrieveData("NewDeaths"),
+                                retrieveData("UPDATED"))
+
+        setInformation(global)
     }
 
     private fun saveDataToLocal(global: GlobalModel){
