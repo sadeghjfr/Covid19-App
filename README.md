@@ -1,3 +1,3 @@
-# Covid19-App (KOTLIN+MVVM+RETROFIT+COROUTINES+NAVIGATION)
-Covid-19 Application for up-to-date information about global infection
+# Covid19-App (KOTLIN)
+Covid-19 Application for up-to-date information about global infection.
 This repository contains a detailed sample app that implements MVVM architecture using RETROFIT, COROUTINES, NAVIGATION, ...
