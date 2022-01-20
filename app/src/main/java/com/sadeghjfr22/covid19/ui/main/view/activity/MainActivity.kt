@@ -1,11 +1,9 @@
-package com.sadeghjfr22.covid19.ui.main
+package com.sadeghjfr22.covid19.ui.main.view.activity
 
 import android.os.Bundle
-import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI
-import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.sadeghjfr22.covid19.R
 import com.sadeghjfr22.covid19.databinding.ActivityMainBinding
 

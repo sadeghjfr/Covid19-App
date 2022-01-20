@@ -1,4 +1,4 @@
-package com.sadeghjfr22.covid19
+package com.sadeghjfr22.covid19.ui.base
 
 import android.content.Context
 import androidx.multidex.MultiDexApplication

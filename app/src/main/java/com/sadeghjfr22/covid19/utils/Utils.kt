@@ -10,16 +10,17 @@ import androidx.fragment.app.Fragment
 import coil.request.ImageRequest
 import coil.transform.RoundedCornersTransformation
 import com.sadeghjfr22.covid19.R
-import com.sadeghjfr22.covid19.App
-import com.sadeghjfr22.covid19.model.Country
-import com.sadeghjfr22.covid19.ui.fragment.CountryItemsFragment.Companion.countries
+import com.sadeghjfr22.covid19.ui.base.App
+import com.sadeghjfr22.covid19.data.model.CountryModel
 import java.text.Collator
+import java.text.DecimalFormat
 import java.text.SimpleDateFormat
 import java.util.*
+import kotlin.collections.ArrayList
 
 object Utils {
 
-    fun translateCountryNames(){
+    fun translateCountryNames(countries: ArrayList<CountryModel>): ArrayList<CountryModel>{
 
        for (item in countries){
 
@@ -28,11 +29,13 @@ object Utils {
            item.country = country.getDisplayCountry(persian)
        }
 
-       translateContinent()
-       persianAlphabetically()
+       val countryItems1 = translateContinent(countries)
+       val countryItems2 = persianAlphabetically(countryItems1)
+
+        return countryItems2;
     }
 
-    fun translateContinent(){
+    fun translateContinent(countries: ArrayList<CountryModel>): ArrayList<CountryModel>{
 
         for (item in countries){
 
@@ -46,6 +49,8 @@ object Utils {
                 "Australia-Oceania" -> item.continent = "استرالیا و اقیانوسیه"
             }
         }
+
+        return countries;
     }
 
     fun ImageView.loadImage(url: String) {
@@ -62,7 +67,7 @@ object Utils {
         App.imageLoader.enqueue(request)
     }
 
-    fun persianAlphabetically(){
+    fun persianAlphabetically(countries: ArrayList<CountryModel>): ArrayList<CountryModel>{
 
         val items: MutableList<String> = ArrayList()
 
@@ -75,7 +80,7 @@ object Utils {
         collator.setStrength(Collator.PRIMARY)
         Collections.sort(items, collator)
 
-        val tmp: MutableList<Country> = ArrayList()
+        val tmp: MutableList<CountryModel> = ArrayList()
         tmp.addAll(countries)
         countries.clear()
 
@@ -95,6 +100,7 @@ object Utils {
         items.clear()
         tmp.clear()
 
+        return countries
     }
 
     fun Fragment.hideKeyboard() {
@@ -114,5 +120,7 @@ object Utils {
         textView.setText("last update :  "+dateString);
 
     }
+
+    fun decimalFormat() = DecimalFormat("###,###")
 
 }

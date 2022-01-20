@@ -22,9 +22,8 @@
             android:id="@+id/linearLayout3"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:gravity="center"
             android:orientation="vertical"
-            android:padding="25dp">
+            android:padding="20dp">
 
             <TextView
                 android:id="@+id/txtTitleResource"
@@ -36,24 +35,26 @@
 
             <TextView
                 android:id="@+id/txtResource2"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
                 android:autoLink="web"
                 android:inputType="textUri"
-                android:text="www.newsapi.org"
+                android:singleLine="true"
+                android:text="@string/news_res"
                 android:textColor="@color/colorPrimaryVariant"
                 android:textColorLink="@color/colorPrimaryVariant"
                 android:textSize="16sp" />
 
             <TextView
                 android:id="@+id/txtResource1"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
                 android:autoLink="web"
                 android:inputType="textUri"
-                android:text="www.worldometers.info"
+                android:singleLine="true"
+                android:text="@string/covid_res"
                 android:textColor="@color/colorPrimaryVariant"
                 android:textColorLink="@color/colorPrimaryVariant"
                 android:textSize="16sp" />
@@ -62,30 +63,14 @@
                 android:id="@+id/txtTitleDeveloper"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="25dp"
                 android:text="Developer"
                 android:textColor="@color/colorPrimary"
                 android:textSize="20sp" />
 
             <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/txtDeveloperName"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Sadegh Jafari"
-                    android:textColor="@color/colorPrimaryVariant"
-                    android:textSize="16sp" />
-
-            </LinearLayout>
-
-            <LinearLayout
                 android:id="@+id/lytInsta"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
                 android:gravity="center_vertical"
@@ -95,9 +80,9 @@
 
                 <ImageView
                     android:id="@+id/imageView14"
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
-                    android:layout_marginRight="5dp"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_marginRight="10dp"
                     android:clickable="false"
                     android:longClickable="false"
                     android:scaleType="centerInside"
@@ -105,11 +90,12 @@
 
                 <TextView
                     android:id="@+id/txtInstagram"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:clickable="false"
                     android:longClickable="false"
-                    android:text="sad.jfr"
+                    android:singleLine="true"
+                    android:text="@string/developer_insta_id"
                     android:textColor="@color/colorPrimaryVariant"
                     android:textSize="16sp" />
 
@@ -117,7 +103,7 @@
 
             <LinearLayout
                 android:id="@+id/lytTelegram"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
                 android:gravity="center_vertical"
@@ -127,9 +113,9 @@
 
                 <ImageView
                     android:id="@+id/imageView11"
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
-                    android:layout_marginRight="5dp"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_marginRight="10dp"
                     android:clickable="false"
                     android:longClickable="false"
                     android:scaleType="centerInside"
@@ -137,11 +123,12 @@
 
                 <TextView
                     android:id="@+id/txtTelegram"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:clickable="false"
                     android:longClickable="false"
-                    android:text="sad_jfr"
+                    android:singleLine="true"
+                    android:text="@string/developer_telegram_id"
                     android:textColor="@color/colorPrimaryVariant"
                     android:textSize="16sp" />
 

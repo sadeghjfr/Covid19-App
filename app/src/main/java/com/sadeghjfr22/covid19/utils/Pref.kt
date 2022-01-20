@@ -1,7 +1,7 @@
 package com.sadeghjfr22.covid19.utils
 
 import android.preference.PreferenceManager
-import com.sadeghjfr22.covid19.App
+import com.sadeghjfr22.covid19.ui.base.App
 
 object Pref {
 
@@ -11,7 +11,6 @@ object Pref {
         val editor = preferences.edit()
         editor.putLong(key, data)
         editor.apply()
-
     }
 
     fun retrieveData(key:String): Long {

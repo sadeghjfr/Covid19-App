@@ -8,12 +8,12 @@
 
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.sadeghjfr22.covid19.ui.fragment.HomeFragment"
+        android:name="com.sadeghjfr22.covid19.ui.main.view.fragment.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" />
     <fragment
         android:id="@+id/countryItemsFragment"
-        android:name="com.sadeghjfr22.covid19.ui.fragment.CountryItemsFragment"
+        android:name="com.sadeghjfr22.covid19.ui.main.view.fragment.CountryItemsFragment"
         android:label="fragment_country_items"
         tools:layout="@layout/fragment_country_items" >
         <argument
@@ -27,16 +27,16 @@
     </fragment>
     <fragment
         android:id="@+id/aboutUsFragment"
-        android:name="com.sadeghjfr22.covid19.ui.fragment.AboutUsFragment"
+        android:name="com.sadeghjfr22.covid19.ui.main.view.fragment.AboutUsFragment"
         android:label="AboutUsFragment" />
     <fragment
         android:id="@+id/newsItemsFragment"
-        android:name="com.sadeghjfr22.covid19.ui.fragment.NewsItemsFragment"
+        android:name="com.sadeghjfr22.covid19.ui.main.view.fragment.NewsItemsFragment"
         android:label="fragment_news_items"
         tools:layout="@layout/fragment_news_items" />
     <fragment
         android:id="@+id/countryInfoFragment"
-        android:name="com.sadeghjfr22.covid19.ui.fragment.CountryInfoFragment"
+        android:name="com.sadeghjfr22.covid19.ui.main.view.fragment.CountryInfoFragment"
         android:label="CountryInfoFragment" >
         <action
             android:id="@+id/action_countryInfoFragment_to_countryItemsFragment"

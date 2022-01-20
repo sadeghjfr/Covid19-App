@@ -5,7 +5,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
-        android:name=".App"
+        android:name=".ui.base.App"
         android:largeHeap="true"
         android:allowBackup="true"
         android:icon="@mipmap/app_logo"
@@ -13,8 +13,8 @@
         android:roundIcon="@mipmap/app_logo"
         android:supportsRtl="true"
         android:theme="@style/Theme.Covid19">
-        <activity android:name=".ui.main.CountryActivity" />
-        <activity android:name=".ui.main.MainActivity"
+        <activity android:name="com.sadeghjfr22.covid19.ui.main.view.activity.CountryActivity" />
+        <activity android:name="com.sadeghjfr22.covid19.ui.main.view.activity.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

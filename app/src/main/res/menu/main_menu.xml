@@ -2,25 +2,25 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
   <item android:id="@+id/aboutUsFragment"
-      android:title="@string/about_us"
+      android:title="@string/nav_about_us"
       android:icon="@drawable/ic_info">
 
   </item>
 
   <item android:id="@+id/newsItemsFragment"
-      android:title="@string/news"
+      android:title="@string/nav_news"
       android:icon="@drawable/ic_news">
 
   </item>
 
   <item android:id="@+id/countryItemsFragment"
-      android:title="@string/country"
+      android:title="@string/nav_country"
       android:icon="@drawable/ic_countries">
 
   </item>
 
   <item android:id="@+id/homeFragment"
-      android:title="@string/home"
+      android:title="@string/nav_home"
       android:icon="@drawable/ic_home"
       >
 

@@ -11,11 +11,14 @@
         <entry key="app/src/main/res/layout/activity_splash.xml" value="0.1" />
         <entry key="app/src/main/res/layout/adapter_country.xml" value="0.12533783783783783" />
         <entry key="app/src/main/res/layout/adapter_news.xml" value="0.2" />
+        <entry key="app/src/main/res/layout/fragment_about_us.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_country.xml" value="0.17" />
         <entry key="app/src/main/res/layout/fragment_country_info.xml" value="0.12533783783783783" />
-        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.12" />
+        <entry key="app/src/main/res/layout/fragment_country_items.xml" value="0.12533783783783783" />
+        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.33" />
         <entry key="app/src/main/res/layout/fragment_info.xml" value="0.12533783783783783" />
         <entry key="app/src/main/res/layout/fragment_news.xml" value="0.16" />
+        <entry key="app/src/main/res/layout/fragment_news_items.xml" value="0.16" />
         <entry key="app/src/main/res/layout/fragment_splash.xml" value="0.12533783783783783" />
         <entry key="app/src/main/res/menu/main_menu.xml" value="0.12533783783783783" />
       </map>

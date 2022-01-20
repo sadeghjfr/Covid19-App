@@ -1,6 +1,5 @@
-package com.sadeghjfr22.covid19.ui.adapter
+package com.sadeghjfr22.covid19.ui.main.view.adapter
 
-import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.view.LayoutInflater
@@ -15,11 +14,10 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.codesgood.views.JustifiedTextView
 import com.sadeghjfr22.covid19.R
-import com.sadeghjfr22.covid19.model.News
+import com.sadeghjfr22.covid19.data.model.News
 import com.sadeghjfr22.covid19.utils.Utils.loadImage
 
-
-class NewsAdapter(var news: List<News>, var context: Context) :
+class NewsAdapter(var news: ArrayList<News>) :
     RecyclerView.Adapter<NewsAdapter.MyViewHolder>() {
 
     class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -85,9 +83,14 @@ class NewsAdapter(var news: List<News>, var context: Context) :
 
     }
 
-    override fun getItemCount(): Int {
+    override fun getItemCount(): Int = news.size;
 
-        return news.size;
+    fun addNews(news: ArrayList<News>) {
+
+        this.news.apply {
+            clear()
+            addAll(news)
+        }
     }
 
 }
