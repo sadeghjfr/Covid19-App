@@ -9,28 +9,24 @@ import android.view.View
 import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.view.ViewGroup
-import android.widget.Toast
-import androidx.fragment.app.Fragment
-import com.sadeghjfr22.covid19.databinding.FragmentHomeBinding
-import com.sadeghjfr22.covid19.data.model.GlobalModel
-import com.sadeghjfr22.covid19.utils.Pref.retrieveData
-import com.sadeghjfr22.covid19.utils.Pref.storeData
 import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.view.ContextThemeWrapper
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.Observer
-import com.sadeghjfr22.covid19.ui.base.App
 import com.sadeghjfr22.covid19.R
 import com.sadeghjfr22.covid19.data.api.ApiClient.apiService
 import com.sadeghjfr22.covid19.data.api.ApiHelper
+import com.sadeghjfr22.covid19.data.model.GlobalModel
+import com.sadeghjfr22.covid19.databinding.FragmentHomeBinding
 import com.sadeghjfr22.covid19.ui.base.ViewModelFactory
 import com.sadeghjfr22.covid19.ui.main.viewmodel.MainViewModel
-import com.sadeghjfr22.covid19.utils.Constants.MYKET_URL
 import com.sadeghjfr22.covid19.utils.Constants.TAG
+import com.sadeghjfr22.covid19.utils.Pref.retrieveData
+import com.sadeghjfr22.covid19.utils.Pref.storeData
 import com.sadeghjfr22.covid19.utils.Status
-import com.sadeghjfr22.covid19.utils.Utils
 import com.sadeghjfr22.covid19.utils.Utils.decimalFormat
 import com.sadeghjfr22.covid19.utils.Utils.setLastUpdate
 import com.sadeghjfr22.covid19.utils.Utils.showSnackBar
@@ -144,9 +140,9 @@ class HomeFragment : Fragment() {
 
         try {
 
-            val intent = Intent()
-            intent.action = Intent.ACTION_VIEW
-            intent.data = Uri.parse(MYKET_URL)
+            val intent = Intent(Intent.ACTION_EDIT)
+            intent.data = Uri.parse("bazaar://details?id=" + "com.sadeghjfr22.covid19")
+            intent.setPackage("com.farsitel.bazaar")
             startActivity(intent)
 
         } catch (e: Exception){ requireActivity().finish() }
