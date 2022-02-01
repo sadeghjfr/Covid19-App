@@ -12,34 +12,21 @@
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" />
     <fragment
-        android:id="@+id/countryItemsFragment"
-        android:name="com.sadeghjfr22.covid19.ui.main.view.fragment.CountryItemsFragment"
-        android:label="fragment_country_items"
-        tools:layout="@layout/fragment_country_items" >
+        android:id="@+id/countriesFragment"
+        android:name="com.sadeghjfr22.covid19.ui.main.view.fragment.CountriesFragment"
+        android:label="fragment_countries"
+        tools:layout="@layout/fragment_countries" >
         <argument
             android:name="country"
             app:argType="string"
             android:defaultValue="none" />
-        <action
-            android:id="@+id/action_countryItemsFragment_to_countryInfoFragment"
-            app:destination="@id/countryInfoFragment"
-            app:enterAnim="@android:anim/slide_in_left" />
     </fragment>
     <fragment
         android:id="@+id/aboutUsFragment"
         android:name="com.sadeghjfr22.covid19.ui.main.view.fragment.AboutUsFragment"
         android:label="AboutUsFragment" />
     <fragment
-        android:id="@+id/newsItemsFragment"
-        android:name="com.sadeghjfr22.covid19.ui.main.view.fragment.NewsItemsFragment"
-        android:label="fragment_news_items"
-        tools:layout="@layout/fragment_news_items" />
-    <fragment
-        android:id="@+id/countryInfoFragment"
-        android:name="com.sadeghjfr22.covid19.ui.main.view.fragment.CountryInfoFragment"
-        android:label="CountryInfoFragment" >
-        <action
-            android:id="@+id/action_countryInfoFragment_to_countryItemsFragment"
-            app:destination="@id/countryItemsFragment" />
-    </fragment>
+        android:id="@+id/iranFragment"
+        android:name="com.sadeghjfr22.covid19.ui.main.view.fragment.IranFragment"
+        android:label="CountryInfoFragment" />
 </navigation>

@@ -30,12 +30,12 @@ class MainViewModel(private val mainRepository: MainRepository) : ViewModel() {
         }
     }
 
-    fun getNews() = liveData(Dispatchers.IO) {
+    fun getIran() = liveData(Dispatchers.IO) {
 
         emit(Resource.loading(data = null))
 
         try {
-            emit(Resource.success(data = mainRepository.getNews()))
+            emit(Resource.success(data = mainRepository.getIran()))
         } catch (exception: Exception) {
             emit(Resource.error(msg = exception.message.toString(), data = null ?: "Error Occurred!"))
         }

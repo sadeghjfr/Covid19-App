@@ -2,16 +2,21 @@ package com.sadeghjfr22.covid19.utils
 
 import android.app.Activity
 import android.content.Context
+import android.os.Build
+import android.view.Gravity
 import android.view.View
 import android.view.inputmethod.InputMethodManager
+import android.widget.FrameLayout
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import coil.request.ImageRequest
 import coil.transform.RoundedCornersTransformation
+import com.google.android.material.snackbar.Snackbar
 import com.sadeghjfr22.covid19.R
 import com.sadeghjfr22.covid19.ui.base.App
 import com.sadeghjfr22.covid19.data.model.CountryModel
+import com.sadeghjfr22.covid19.ui.base.App.Companion.getContext
 import java.text.Collator
 import java.text.DecimalFormat
 import java.text.SimpleDateFormat
@@ -58,7 +63,6 @@ object Utils {
         val request = ImageRequest.Builder(this.context)
             .crossfade(true)
             .crossfade(500)
-            .transformations(RoundedCornersTransformation(20f))
             .data(url)
             .target(this)
             .error(R.drawable.ic_no_pic)
@@ -114,7 +118,7 @@ object Utils {
 
     fun setLastUpdate(textView:TextView,updated:Long) {
 
-        val formatter = SimpleDateFormat("MMM d  HH:mm");
+        val formatter = SimpleDateFormat("MMM  d  HH:mm");
         val dateString = formatter.format(Date(updated));
 
         textView.setText("last update :  "+dateString);
@@ -122,5 +126,28 @@ object Utils {
     }
 
     fun decimalFormat() = DecimalFormat("###,###")
+
+    fun showSnackBar(view: View, msg: Int){
+
+        val snack: Snackbar = Snackbar.make(view, msg, Snackbar.LENGTH_LONG)
+        val snackView = snack.view
+
+        if (msg == R.string.msg_note){
+
+            val params = snackView.layoutParams as FrameLayout.LayoutParams
+            params.gravity = Gravity.TOP
+            params.setMargins(getContext().resources.getDimension(R.dimen._10sdp).toInt(),
+                              getContext().resources.getDimension(R.dimen._60sdp).toInt(),
+                              getContext().resources.getDimension(R.dimen._10sdp).toInt(),
+                              getContext().resources.getDimension(R.dimen._1sdp).toInt(),)
+            snackView.layoutParams = params
+        }
+
+        val mTextView = snackView.findViewById<View>(R.id.snackbar_text) as TextView
+        mTextView.setTextColor(App.getContext().resources.getColor(R.color.colorPrimaryVariant))
+        mTextView.textAlignment = View.TEXT_ALIGNMENT_CENTER
+
+        snack.show()
+    }
 
 }

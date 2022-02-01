@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center"
@@ -13,7 +13,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:cardBackgroundColor="@color/colorPrimaryDark"
-        app:cardCornerRadius="15dp"
+        app:cardCornerRadius="@dimen/_15sdp"
         app:layout_constraintEnd_toStartOf="@+id/guideline22"
         app:layout_constraintStart_toStartOf="@+id/guideline21"
         app:layout_constraintTop_toTopOf="@+id/guideline10">
@@ -23,7 +23,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:padding="20dp">
+            android:padding="@dimen/_20sdp">
 
             <TextView
                 android:id="@+id/txtTitleResource"
@@ -31,48 +31,48 @@
                 android:layout_height="wrap_content"
                 android:text="Resources"
                 android:textColor="@color/colorPrimary"
-                android:textSize="20sp" />
+                android:textSize="@dimen/_18ssp" />
 
             <TextView
                 android:id="@+id/txtResource2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="@dimen/_15sdp"
                 android:autoLink="web"
                 android:inputType="textUri"
                 android:singleLine="true"
                 android:text="@string/news_res"
                 android:textColor="@color/colorPrimaryVariant"
                 android:textColorLink="@color/colorPrimaryVariant"
-                android:textSize="16sp" />
+                android:textSize="@dimen/_14ssp" />
 
             <TextView
                 android:id="@+id/txtResource1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="@dimen/_15sdp"
                 android:autoLink="web"
                 android:inputType="textUri"
                 android:singleLine="true"
                 android:text="@string/covid_res"
                 android:textColor="@color/colorPrimaryVariant"
                 android:textColorLink="@color/colorPrimaryVariant"
-                android:textSize="16sp" />
+                android:textSize="@dimen/_14ssp" />
 
             <TextView
                 android:id="@+id/txtTitleDeveloper"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="25dp"
+                android:layout_marginTop="@dimen/_25sdp"
                 android:text="Developer"
                 android:textColor="@color/colorPrimary"
-                android:textSize="20sp" />
+                android:textSize="@dimen/_18ssp" />
 
             <LinearLayout
                 android:id="@+id/lytInsta"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="@dimen/_15sdp"
                 android:gravity="center_vertical"
                 android:layoutDirection="ltr"
                 android:onClick="onClick"
@@ -80,9 +80,9 @@
 
                 <ImageView
                     android:id="@+id/imageView14"
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:layout_marginRight="10dp"
+                    android:layout_width="@dimen/_24sdp"
+                    android:layout_height="@dimen/_24sdp"
+                    android:layout_marginRight="@dimen/_10sdp"
                     android:clickable="false"
                     android:longClickable="false"
                     android:scaleType="centerInside"
@@ -97,7 +97,7 @@
                     android:singleLine="true"
                     android:text="@string/developer_insta_id"
                     android:textColor="@color/colorPrimaryVariant"
-                    android:textSize="16sp" />
+                    android:textSize="@dimen/_14ssp" />
 
             </LinearLayout>
 
@@ -105,7 +105,7 @@
                 android:id="@+id/lytTelegram"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="@dimen/_15sdp"
                 android:gravity="center_vertical"
                 android:layoutDirection="ltr"
                 android:onClick="onClick"
@@ -113,9 +113,9 @@
 
                 <ImageView
                     android:id="@+id/imageView11"
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:layout_marginRight="10dp"
+                    android:layout_width="@dimen/_24sdp"
+                    android:layout_height="@dimen/_24sdp"
+                    android:layout_marginRight="@dimen/_10sdp"
                     android:clickable="false"
                     android:longClickable="false"
                     android:scaleType="centerInside"
@@ -130,7 +130,7 @@
                     android:singleLine="true"
                     android:text="@string/developer_telegram_id"
                     android:textColor="@color/colorPrimaryVariant"
-                    android:textSize="16sp" />
+                    android:textSize="@dimen/_14ssp" />
 
             </LinearLayout>
 

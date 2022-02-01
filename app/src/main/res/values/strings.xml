@@ -4,7 +4,7 @@
     <string name="nav_home">صفحه اصلی</string>
     <string name="nav_country">کشورها</string>
     <string name="nav_about_us">درباره ما</string>
-    <string name="nav_news">اخبار</string>
+    <string name="nav_iran">ایران</string>
     <string name="confirmed_title">مبتلایان</string>
     <string name="today_confirmed_title">مبتلایان امروز</string>
     <string name="recovered_title">بهبود یافته ها</string>
@@ -17,6 +17,7 @@
     <string name="view_details">مشاهده جزئیات</string>
     <string name="empty">- - -</string>
     <string name="app_not_found">این برنامه بر روی دستگاه شما نصب نیست</string>
+    <string name="msg_note">آمار روزانه معمولا در پایان آن روز اعلام می شوند</string>
     <string name="read_more">Read more…</string>
     <string name="developer_telegram_id">telegram/@sadeghjaffari</string>
     <string name="developer_insta_id">instagram/@sadegh.jaffari</string>

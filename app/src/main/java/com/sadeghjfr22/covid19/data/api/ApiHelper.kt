@@ -6,6 +6,6 @@ class ApiHelper(private val apiService: ApiService) {
 
     suspend fun getCountries() = apiService.getCountries()
 
-    suspend fun getNews() = apiService.getNews()
+    suspend fun getIran() = apiService.getIran()
 
 }

@@ -9,9 +9,7 @@ import com.sadeghjfr22.covid19.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
-    companion object{
-        lateinit var binding: ActivityMainBinding
-    }
+    lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

@@ -23,15 +23,17 @@ import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.Observer
 import com.sadeghjfr22.covid19.ui.base.App
 import com.sadeghjfr22.covid19.R
-import com.sadeghjfr22.covid19.data.api.ApiClient.covidApiService
+import com.sadeghjfr22.covid19.data.api.ApiClient.apiService
 import com.sadeghjfr22.covid19.data.api.ApiHelper
 import com.sadeghjfr22.covid19.ui.base.ViewModelFactory
 import com.sadeghjfr22.covid19.ui.main.viewmodel.MainViewModel
 import com.sadeghjfr22.covid19.utils.Constants.MYKET_URL
 import com.sadeghjfr22.covid19.utils.Constants.TAG
 import com.sadeghjfr22.covid19.utils.Status
+import com.sadeghjfr22.covid19.utils.Utils
 import com.sadeghjfr22.covid19.utils.Utils.decimalFormat
 import com.sadeghjfr22.covid19.utils.Utils.setLastUpdate
+import com.sadeghjfr22.covid19.utils.Utils.showSnackBar
 
 class HomeFragment : Fragment() {
 
@@ -64,7 +66,7 @@ class HomeFragment : Fragment() {
 
     private fun setupObserver() {
 
-        val viewModel: MainViewModel by viewModels(){ViewModelFactory(ApiHelper(covidApiService))}
+        val viewModel: MainViewModel by viewModels(){ViewModelFactory(ApiHelper(apiService))}
 
         viewModel.getGlobal().observe(viewLifecycleOwner, Observer {
 
@@ -81,7 +83,7 @@ class HomeFragment : Fragment() {
                         binding.parent.visibility = VISIBLE
                         binding.spinKit.visibility = GONE
                         getDataFromLocal()
-                        Toast.makeText(App.getContext(), R.string.error_connection, Toast.LENGTH_SHORT).show()
+                        showSnackBar(requireView(), R.string.error_connection)
                         Log.e(TAG,"ERROR:"+it.message.toString())
                     }
 

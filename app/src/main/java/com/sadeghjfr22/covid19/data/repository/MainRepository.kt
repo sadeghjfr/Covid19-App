@@ -8,6 +8,6 @@ class MainRepository(private val apiHelper: ApiHelper) {
 
     suspend fun getCountries() = apiHelper.getCountries()
 
-    suspend fun getNews() = apiHelper.getNews()
+    suspend fun getIran() = apiHelper.getIran()
 
 }

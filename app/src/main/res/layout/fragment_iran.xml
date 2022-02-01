@@ -1,0 +1,565 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipeRefreshLayout"
+        style="@style/SpinKitView.FadingCircle"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/imgNoInternet2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/no_internet"
+                    android:visibility="gone"
+                    app:tint="@color/colorHint" />
+
+                <TextView
+                    android:id="@+id/txtNoInternet2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:padding="@dimen/_10sdp"
+                    android:textSize="@dimen/_14ssp"
+                    android:text="@string/error_connection"
+                    android:textColor="@color/colorHint"
+                    android:visibility="gone" />
+
+                <com.github.ybq.android.spinkit.SpinKitView
+                    android:id="@+id/spin_kit_country"
+                    style="@style/SpinKitView.FadingCircle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:visibility="gone"
+                    app:SpinKit_Color="@color/colorPrimaryVariant" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/parent"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/cardView3"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_margin="@dimen/_15sdp"
+                        app:cardBackgroundColor="@color/colorPrimaryDark"
+                        app:cardCornerRadius="@dimen/_15sdp"
+                        app:layout_constraintBottom_toTopOf="@+id/guideline5"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal"
+                            android:padding="@dimen/_15sdp">
+
+                            <androidx.cardview.widget.CardView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="@dimen/_10sdp"
+                                app:cardBackgroundColor="@android:color/transparent"
+                                app:cardCornerRadius="@dimen/_10sdp"
+                                app:cardMaxElevation="@dimen/_5sdp">
+
+                                <ImageView
+                                    android:id="@+id/imgFlag"
+                                    android:layout_width="@dimen/_100sdp"
+                                    android:layout_height="@dimen/_65sdp"
+                                    android:layout_gravity="top"
+                                    android:scaleType="fitXY" />
+                            </androidx.cardview.widget.CardView>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0dp"
+                                    android:layout_weight="0.25"
+                                    android:gravity="center|right"
+                                    android:orientation="horizontal">
+
+                                    <TextView
+                                        android:id="@+id/txtName"
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="0.7"
+                                        android:gravity="center"
+                                        android:text="ایران"
+                                        android:textColor="@color/colorPrimaryVariant"
+                                        android:textSize="@dimen/_12ssp" />
+
+                                    <TextView
+                                        android:id="@+id/textView4"
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="0.3"
+                                        android:text="کشور"
+                                        android:textColor="@color/colorHint"
+                                        android:textSize="@dimen/_12ssp" />
+
+                                </LinearLayout>
+
+                                <View
+                                    android:id="@+id/view4"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/_1sdp"
+                                    android:background="@drawable/gradient_divider" />
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0dp"
+                                    android:layout_weight="0.25"
+                                    android:gravity="center|right"
+                                    android:orientation="horizontal">
+
+                                    <TextView
+                                        android:id="@+id/txtRegion"
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="0.7"
+                                        android:gravity="center"
+                                        android:text="اسیا"
+                                        android:textColor="@color/colorPrimaryVariant"
+                                        android:textSize="@dimen/_12ssp" />
+
+                                    <TextView
+                                        android:id="@+id/textView2"
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="0.3"
+                                        android:text="قاره"
+                                        android:textColor="@color/colorHint"
+                                        android:textSize="@dimen/_12ssp" />
+
+                                </LinearLayout>
+
+                                <View
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/_1sdp"
+                                    android:background="@drawable/gradient_divider" />
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0dp"
+                                    android:layout_weight="0.25"
+                                    android:gravity="center|right"
+                                    android:orientation="horizontal">
+
+                                    <TextView
+                                        android:id="@+id/txtPopulation"
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="0.7"
+                                        android:gravity="center"
+                                        android:text="85000000"
+                                        android:textColor="@color/colorPrimaryVariant"
+                                        android:textSize="@dimen/_12ssp" />
+
+                                    <TextView
+                                        android:id="@+id/textView"
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="0.3"
+                                        android:text="جمعیت"
+                                        android:textColor="@color/colorHint"
+                                        android:textSize="@dimen/_12ssp" />
+                                </LinearLayout>
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/countryParent"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/guideline5">
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            app:cardBackgroundColor="@color/colorPrimaryDark"
+                            app:cardCornerRadius="@dimen/_15sdp"
+                            app:layout_constraintBottom_toTopOf="@+id/guideline13"
+                            app:layout_constraintEnd_toStartOf="@+id/guideline6"
+                            app:layout_constraintStart_toStartOf="@+id/guideline3"
+                            app:layout_constraintTop_toTopOf="@+id/guideline2">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical">
+
+                                <ImageView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0dp"
+                                    android:layout_weight="0.5"
+                                    android:paddingTop="@dimen/_10sdp"
+                                    android:src="@drawable/ic_confirmed2" />
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0dp"
+                                    android:layout_weight="0.25"
+                                    android:gravity="center"
+                                    android:text="مبتلایان امروز"
+                                    android:textColor="@color/colorPrimaryVariant"
+                                    android:textSize="@dimen/_10ssp" />
+
+                                <TextView
+                                    android:id="@+id/txtNewConfirmedCountry"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0dp"
+                                    android:layout_weight="0.25"
+                                    android:gravity="center_horizontal"
+                                    android:text="- - -"
+                                    android:textColor="@color/colorPrimaryVariant"
+                                    android:textSize="@dimen/_10ssp" />
+
+                            </LinearLayout>
+
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            app:cardBackgroundColor="@color/colorPrimaryDark"
+                            app:cardCornerRadius="@dimen/_15sdp"
+                            app:layout_constraintBottom_toTopOf="@+id/guideline13"
+                            app:layout_constraintEnd_toStartOf="@+id/guideline4"
+                            app:layout_constraintStart_toStartOf="@+id/guideline11"
+                            app:layout_constraintTop_toTopOf="@+id/guideline2">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical">
+
+                                <ImageView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0dp"
+                                    android:layout_weight="0.5"
+                                    android:paddingTop="@dimen/_10sdp"
+                                    android:src="@drawable/ic_confirmed" />
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0dp"
+                                    android:layout_weight="0.25"
+                                    android:gravity="center"
+                                    android:text="مبتلایان"
+                                    android:textColor="@color/colorPrimaryVariant"
+                                    android:textSize="@dimen/_10ssp" />
+
+                                <TextView
+                                    android:id="@+id/txtTotalConfirmedCountry"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0dp"
+                                    android:layout_weight="0.25"
+                                    android:gravity="center_horizontal"
+                                    android:text="- - -"
+                                    android:textColor="@color/colorPrimaryVariant"
+                                    android:textSize="@dimen/_10ssp" />
+
+                            </LinearLayout>
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            app:cardBackgroundColor="@color/colorPrimaryDark"
+                            app:cardCornerRadius="@dimen/_15sdp"
+                            app:layout_constraintBottom_toTopOf="@+id/guideline15"
+                            app:layout_constraintEnd_toStartOf="@+id/guideline6"
+                            app:layout_constraintHorizontal_bias="0.0"
+                            app:layout_constraintStart_toStartOf="@+id/guideline3"
+                            app:layout_constraintTop_toTopOf="@+id/guideline14">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical">
+
+                                <ImageView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0dp"
+                                    android:layout_weight="0.5"
+                                    android:paddingTop="@dimen/_10sdp"
+                                    android:src="@drawable/ic_recovered2" />
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0dp"
+                                    android:layout_weight="0.25"
+                                    android:gravity="center"
+                                    android:text="بهبود یافته های امروز"
+                                    android:textColor="@color/colorPrimaryVariant"
+                                    android:textSize="@dimen/_10ssp" />
+
+                                <TextView
+                                    android:id="@+id/txtNewRecoveredCountry"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0dp"
+                                    android:layout_weight="0.25"
+                                    android:gravity="center_horizontal"
+                                    android:text="- - -"
+                                    android:textColor="@color/colorPrimaryVariant"
+                                    android:textSize="@dimen/_10ssp" />
+
+                            </LinearLayout>
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            app:cardBackgroundColor="@color/colorPrimaryDark"
+                            app:cardCornerRadius="@dimen/_15sdp"
+                            app:layout_constraintBottom_toTopOf="@+id/guideline15"
+                            app:layout_constraintEnd_toStartOf="@+id/guideline4"
+                            app:layout_constraintHorizontal_bias="0.0"
+                            app:layout_constraintStart_toStartOf="@+id/guideline11"
+                            app:layout_constraintTop_toTopOf="@+id/guideline14">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical">
+
+                                <ImageView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0dp"
+                                    android:layout_weight="0.5"
+                                    android:paddingTop="@dimen/_10sdp"
+                                    android:src="@drawable/ic_recovered" />
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0dp"
+                                    android:layout_weight="0.25"
+                                    android:gravity="center"
+                                    android:text="بهبود یافته ها"
+                                    android:textColor="@color/colorPrimaryVariant"
+                                    android:textSize="@dimen/_10ssp" />
+
+                                <TextView
+                                    android:id="@+id/txtTotalRecoveredCountry"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0dp"
+                                    android:layout_weight="0.25"
+                                    android:gravity="center_horizontal"
+                                    android:text="- - -"
+                                    android:textColor="@color/colorPrimaryVariant"
+                                    android:textSize="@dimen/_10ssp" />
+
+                            </LinearLayout>
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            app:cardBackgroundColor="@color/colorPrimaryDark"
+                            app:cardCornerRadius="@dimen/_15sdp"
+                            app:layout_constraintBottom_toTopOf="@+id/guideline12"
+                            app:layout_constraintEnd_toStartOf="@+id/guideline6"
+                            app:layout_constraintHorizontal_bias="1.0"
+                            app:layout_constraintStart_toStartOf="@+id/guideline3"
+                            app:layout_constraintTop_toTopOf="@+id/guideline16">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical">
+
+                                <ImageView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0dp"
+                                    android:layout_weight="0.5"
+                                    android:paddingTop="@dimen/_10sdp"
+                                    android:src="@drawable/ic_death2" />
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0dp"
+                                    android:layout_weight="0.25"
+                                    android:gravity="center"
+                                    android:text="فوتی های امروز"
+                                    android:textColor="@color/colorPrimaryVariant"
+                                    android:textSize="@dimen/_10ssp" />
+
+                                <TextView
+                                    android:id="@+id/txtNewDeathsCountry"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0dp"
+                                    android:layout_weight="0.25"
+                                    android:gravity="center_horizontal"
+                                    android:text="- - -"
+                                    android:textColor="@color/colorPrimaryVariant"
+                                    android:textSize="@dimen/_10ssp" />
+
+                            </LinearLayout>
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            app:cardBackgroundColor="@color/colorPrimaryDark"
+                            app:cardCornerRadius="@dimen/_15sdp"
+                            app:layout_constraintBottom_toTopOf="@+id/guideline12"
+                            app:layout_constraintEnd_toStartOf="@+id/guideline4"
+                            app:layout_constraintStart_toStartOf="@+id/guideline11"
+                            app:layout_constraintTop_toTopOf="@+id/guideline16">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical">
+
+                                <ImageView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0dp"
+                                    android:layout_weight="0.5"
+                                    android:paddingTop="@dimen/_10sdp"
+                                    android:src="@drawable/ic_death" />
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0dp"
+                                    android:layout_weight="0.25"
+                                    android:gravity="center"
+                                    android:text="فوتی ها"
+                                    android:textColor="@color/colorPrimaryVariant"
+                                    android:textSize="@dimen/_10ssp" />
+
+                                <TextView
+                                    android:id="@+id/txtTotalDeathsCountry"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0dp"
+                                    android:layout_weight="0.25"
+                                    android:gravity="center_horizontal"
+                                    android:text="- - -"
+                                    android:textColor="@color/colorPrimaryVariant"
+                                    android:textSize="@dimen/_10ssp" />
+
+                            </LinearLayout>
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.constraintlayout.widget.Guideline
+                            android:id="@+id/guideline2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            app:layout_constraintGuide_percent="0.0" />
+
+                        <androidx.constraintlayout.widget.Guideline
+                            android:id="@+id/guideline13"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            app:layout_constraintGuide_percent="0.22" />
+
+                        <androidx.constraintlayout.widget.Guideline
+                            android:id="@+id/guideline14"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            app:layout_constraintGuide_percent="0.27" />
+
+                        <androidx.constraintlayout.widget.Guideline
+                            android:id="@+id/guideline15"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            app:layout_constraintGuide_percent="0.49" />
+
+                        <androidx.constraintlayout.widget.Guideline
+                            android:id="@+id/guideline16"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            app:layout_constraintGuide_percent="0.54" />
+
+                        <androidx.constraintlayout.widget.Guideline
+                            android:id="@+id/guideline12"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            app:layout_constraintGuide_percent="0.74" />
+
+                        <androidx.constraintlayout.widget.Guideline
+                            android:id="@+id/guideline3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            app:layout_constraintGuide_percent="0.08" />
+
+                        <androidx.constraintlayout.widget.Guideline
+                            android:id="@+id/guideline6"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            app:layout_constraintGuide_percent="0.46" />
+
+                        <androidx.constraintlayout.widget.Guideline
+                            android:id="@+id/guideline11"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            app:layout_constraintGuide_percent="0.54" />
+
+                        <androidx.constraintlayout.widget.Guideline
+                            android:id="@+id/guideline4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            app:layout_constraintGuide_percent="0.92" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.Guideline
+                        android:id="@+id/guideline5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        app:layout_constraintGuide_percent="0.29" />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+</LinearLayout>
