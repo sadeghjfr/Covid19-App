@@ -34,19 +34,6 @@
                 android:textSize="@dimen/_18ssp" />
 
             <TextView
-                android:id="@+id/txtResource2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_15sdp"
-                android:autoLink="web"
-                android:inputType="textUri"
-                android:singleLine="true"
-                android:text="@string/news_res"
-                android:textColor="@color/colorPrimaryVariant"
-                android:textColorLink="@color/colorPrimaryVariant"
-                android:textSize="@dimen/_14ssp" />
-
-            <TextView
                 android:id="@+id/txtResource1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

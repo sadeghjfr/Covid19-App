@@ -12,7 +12,7 @@ android {
         applicationId "com.sadeghjfr22.covid19"
         minSdkVersion 21
         targetSdkVersion 31
-        versionCode 3
+        versionCode 4
         versionName "1.0"
         multiDexEnabled true
 
