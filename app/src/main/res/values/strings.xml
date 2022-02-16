@@ -21,6 +21,6 @@
     <string name="read_more">Read more…</string>
     <string name="developer_telegram_id">telegram/@sadeghjaffari</string>
     <string name="developer_insta_id">instagram/@sadegh.jaffari</string>
-    <string name="covid_res">www.worldometers.info</string>
+    <string name="covid_res">https://www.who.int/</string>
 
 </resources>
