@@ -1,33 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="DesignSurface">
-    <option name="filePathToZoomLevelMap">
-      <map>
-        <entry key="app/src/main/res/drawable/bg_layout.xml" value="0.2015" />
-        <entry key="app/src/main/res/drawable/bg_nav_selected.xml" value="0.1358108108108108" />
-        <entry key="app/src/main/res/drawable/bg_navigation.xml" value="0.1358108108108108" />
-        <entry key="app/src/main/res/drawable/gradient_line.xml" value="0.1735" />
-        <entry key="app/src/main/res/drawable/ic_no_pic.xml" value="0.1358108108108108" />
-        <entry key="app/src/main/res/layout/activity_country.xml" value="0.2" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.16" />
-        <entry key="app/src/main/res/layout/activity_splash.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/adapter_country.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/adapter_news.xml" value="0.2" />
-        <entry key="app/src/main/res/layout/fragment_about_us.xml" value="0.22" />
-        <entry key="app/src/main/res/layout/fragment_countries.xml" value="0.13" />
-        <entry key="app/src/main/res/layout/fragment_country.xml" value="0.17" />
-        <entry key="app/src/main/res/layout/fragment_country_info.xml" value="0.2" />
-        <entry key="app/src/main/res/layout/fragment_country_items.xml" value="0.12533783783783783" />
-        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.16" />
-        <entry key="app/src/main/res/layout/fragment_info.xml" value="0.12533783783783783" />
-        <entry key="app/src/main/res/layout/fragment_iran.xml" value="0.5" />
-        <entry key="app/src/main/res/layout/fragment_news.xml" value="0.16" />
-        <entry key="app/src/main/res/layout/fragment_news_items.xml" value="0.16" />
-        <entry key="app/src/main/res/layout/fragment_splash.xml" value="0.12533783783783783" />
-        <entry key="app/src/main/res/menu/main_menu.xml" value="0.12533783783783783" />
-      </map>
-    </option>
-  </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
